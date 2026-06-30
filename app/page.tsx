@@ -1,6 +1,6 @@
 "use client";
 
-const TOTAL_PAGES = 6;
+const TOTAL_PAGES = 7;
 const REPORT_DATE = "30.06.2026";
 
 function Brand() {
@@ -330,7 +330,67 @@ export default function Page() {
           <PageFooter page={5} />
         </div>
 
-        {/* ===== PAGE 6 · FAZIT ===== */}
+        {/* ===== PAGE 6 · ZUSAMMENARBEIT & ABNAHME ===== */}
+        <div className="page">
+          <PageHeader />
+          <div style={{ flex: 1 }}>
+            <h2><span className="num">06</span>Zusammenarbeit &amp; Abnahme</h2>
+            <p className="lead">Sechs Feedback-Runden von Anfang Juni bis Ende Juni — jede innerhalb von Stunden umgesetzt.</p>
+
+            <div className="timeline">
+              <div className="timeline-row">
+                <div className="timeline-badge">1. Jun</div>
+                <div className="timeline-body">
+                  <h3>UI-Anpassungen · Tobias</h3>
+                  <p>Szenario-Aufbau, Platzhalter → „Unlock", Donald Trump als Featured Case, Menü „How to" ergänzen. → Tobias: <em>„finde die Anpassungen absolut gelungen – das wird unser Aufbau sein!"</em></p>
+                </div>
+              </div>
+              <div className="timeline-row">
+                <div className="timeline-badge">4. Jun</div>
+                <div className="timeline-body">
+                  <h3>Auswertungs-Format · Mark Hempelmann</h3>
+                  <p>9-Kategorien-Spinnennetz bestätigt. Prompt-Übergabe für Basisprofile (Sandra, Kritikgespräch leicht/mittel/schwer) definiert.</p>
+                </div>
+              </div>
+              <div className="timeline-row">
+                <div className="timeline-badge hl">8.–9. Jun</div>
+                <div className="timeline-body">
+                  <h3>Login-Finalisierung · Tobias</h3>
+                  <p>Einladungscode-Flow, Text-Korrekturen, Coaching-Feld entfernen, Celebrity-Booster. → Tobias: <em>„Alles korrekt umgesetzt, so können wir nun starten."</em></p>
+                </div>
+              </div>
+              <div className="timeline-row">
+                <div className="timeline-badge hl">10.–12. Jun</div>
+                <div className="timeline-body">
+                  <h3>Datenschutz: Nutzer-ID statt E-Mail · Tobias &amp; Theodor</h3>
+                  <p>Kunden haben strenge Datenschutzvorgaben → kompletter Umbau auf frei wählbare Nutzer-ID, kein E-Mail-Pflichtfeld, Login-Label angepasst. → Tobias: <em>„Geschafft. Super."</em></p>
+                </div>
+              </div>
+              <div className="timeline-row">
+                <div className="timeline-badge hl">23.–24. Jun</div>
+                <div className="timeline-body">
+                  <h3>Mandantensystem · Theodor &amp; Tobias</h3>
+                  <p>Theodor meldet: Berechtigungen greifen nicht, 3 Stufen fehlen (Aktiv / Locked / Deaktiviert). → Über Nacht geliefert, Bugs behoben, auf Staging bereitgestellt.</p>
+                </div>
+              </div>
+              <div className="timeline-row">
+                <div className="timeline-badge">26. Jun</div>
+                <div className="timeline-body">
+                  <h3>Impressum · Tobias</h3>
+                  <p>Impressum-Seite auf Staging umgesetzt und abgenommen.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="note good" style={{ marginTop: 20 }}>
+              <strong>Projektabnahme — Theodor Schalagin, 26.06.2026:</strong><br />
+              <span style={{ fontStyle: "italic", color: "var(--ink-2)" }}>„Hallo Eray, wir haben alles getestet, sieht soweit ganz gut aus. Du kannst die Version gerne in die Produktion bringen."</span>
+            </div>
+          </div>
+          <PageFooter page={6} />
+        </div>
+
+        {/* ===== PAGE 7 · FAZIT ===== */}
         <div className="page back-cover">
           <PageHeader />
           <div style={{ flex: 1 }}>
