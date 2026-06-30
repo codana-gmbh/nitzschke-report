@@ -237,10 +237,7 @@ export default function Page() {
         <div className="page">
           <PageHeader />
           <div style={{ flex: 1 }}>
-            <h2><span className="num">03</span>Zeiterfassung · Detail</h2>
-            <p style={{ fontSize: 12, color: "var(--muted)", marginBottom: 16, lineHeight: 1.6 }}>
-              Abgeleitet aus 351 Commits (ohne Merges) ab Beauftragung am 30.03.2026. Tätigkeit und Stundenaufwand pro Arbeitstag aus den Commit-Zeiträumen (erster bis letzter Commit, Sessions mit mehr als 90 Minuten Pause getrennt gezählt). Vorarbeiten vom 13.03. (vor Beauftragung) sind nicht enthalten. Wochenenden rot markiert.
-            </p>
+            <h2 style={{ marginBottom: 20 }}><span className="num">03</span>Zeiterfassung · Detail</h2>
 
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, alignItems: "start" }}>
               <SheetTable rows={SHEET_A} subLabel="Zwischensumme April – Mai" subHours={46.5} />
