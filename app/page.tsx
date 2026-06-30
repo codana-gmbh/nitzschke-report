@@ -335,9 +335,16 @@ export default function Page() {
           <PageHeader />
           <div style={{ flex: 1 }}>
             <h2><span className="num">06</span>Zusammenarbeit &amp; Abnahme</h2>
-            <p className="lead">Sechs Feedback-Runden von Anfang Juni bis Ende Juni — jede innerhalb von Stunden umgesetzt.</p>
+            <p className="lead">Vom Kickoff-Meeting Ende Mai bis zur Produktions-Abnahme Ende Juni — jede Anpassung innerhalb von Stunden umgesetzt.</p>
 
             <div className="timeline">
+              <div className="timeline-row">
+                <div className="timeline-badge">29. Mai</div>
+                <div className="timeline-body">
+                  <h3>Kickoff &amp; Plattform-Spezifikation · Tobias</h3>
+                  <p>Tobias definiert die Ausgangsbasis: Kompetenzfeld „Kommunikation" (Kritikgespräch leicht/mittel/schwer + Positive Sprache) und Kompetenzfeld „Typen" (Anna Richter, Thomas Müller, Donald Trump). Eray bestätigt den Deployment-Stand und startet die Umsetzung.</p>
+                </div>
+              </div>
               <div className="timeline-row">
                 <div className="timeline-badge">1. Jun</div>
                 <div className="timeline-body">
