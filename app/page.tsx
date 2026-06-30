@@ -3,57 +3,57 @@
 const TOTAL_PAGES = 4;
 const REPORT_DATE = "30.06.2026";
 
-// Zeiterfassung aus 376 Commits (Nicht-Merge). Sessions getrennt bei >90 Min Pause.
-// [Datum, Tag, Zeitfenster, Commits, Stunden]
+// Zeiterfassung aus 351 Commits (Nicht-Merge) ab Beauftragung 30.03. Sessions getrennt bei >90 Min Pause.
+// [Datum, Tag, Tätigkeit, Commits, Stunden]
 type SheetRow = [string, string, string, number, number];
 const SHEET_A: SheetRow[] = [
-  ["02.04.", "Do", "09:41", 1, 1.0],
-  ["03.04.", "Fr", "02:47–23:47", 11, 3.0],
-  ["04.04.", "Sa", "02:11–17:07", 18, 5.0],
-  ["08.04.", "Mi", "17:18–18:35", 4, 2.0],
-  ["14.04.", "Di", "12:36–15:03", 5, 2.5],
-  ["15.04.", "Mi", "11:15–23:42", 9, 3.5],
-  ["16.04.", "Do", "11:49–17:03", 19, 5.0],
-  ["17.04.", "Fr", "02:31", 2, 1.0],
-  ["19.04.", "So", "13:07–00:29", 25, 7.5],
-  ["20.04.", "Mo", "12:20–14:45", 64, 3.0],
-  ["29.04.", "Mi", "09:42–09:46", 2, 1.0],
-  ["12.05.", "Di", "12:37–13:26", 2, 1.5],
-  ["13.05.", "Mi", "16:48", 1, 1.0],
-  ["15.05.", "Fr", "09:12–12:19", 3, 2.5],
-  ["17.05.", "So", "02:13–02:28", 3, 1.0],
-  ["18.05.", "Mo", "10:35–12:25", 3, 2.5],
-  ["19.05.", "Di", "09:28", 1, 1.0],
-  ["28.05.", "Do", "14:35", 1, 1.0],
-  ["29.05.", "Fr", "12:45–13:21", 4, 1.5],
+  ["02.04.", "Do", "Projekt-Setup, Tests", 1, 1.0],
+  ["03.04.", "Fr", "Light-Theme, Dashboard", 11, 3.0],
+  ["04.04.", "Sa", "Voice-Auswahl, PDF-Export", 18, 5.0],
+  ["08.04.", "Mi", "Auswertung, Transkript", 4, 2.0],
+  ["14.04.", "Di", "Admin-Statistik, DSGVO", 5, 2.5],
+  ["15.04.", "Mi", "Self-Host-Bootstrap", 9, 3.5],
+  ["16.04.", "Do", "Hetzner-Deployment", 19, 5.0],
+  ["17.04.", "Fr", "LiveKit-/Kong-Update", 2, 1.0],
+  ["19.04.", "So", "Landingpage-Redesign", 25, 7.5],
+  ["20.04.", "Mo", "Scoring & Voice-Zuordnung", 64, 3.0],
+  ["29.04.", "Mi", "Security-Härtung", 2, 1.0],
+  ["12.05.", "Di", "Nitzschke-Rebrand, LLM", 2, 1.5],
+  ["13.05.", "Mi", "Setup-Screen, TURN/ICE", 1, 1.0],
+  ["15.05.", "Fr", "Branding & Design-System", 3, 2.5],
+  ["17.05.", "So", "Charakter-Video, Modus", 3, 1.0],
+  ["18.05.", "Mo", "Bild-Upload, Briefing", 3, 2.5],
+  ["19.05.", "Di", "Bild-Upload, LLM-Debug", 1, 1.0],
+  ["28.05.", "Do", "Prio-1 Kundenfeedback", 1, 1.0],
+  ["29.05.", "Fr", "Szenario-Varianten, Personas", 4, 1.5],
 ];
 const SHEET_B: SheetRow[] = [
-  ["03.06.", "Mi", "10:10–12:56", 18, 3.5],
-  ["04.06.", "Do", "00:07–15:46", 20, 4.5],
-  ["05.06.", "Fr", "09:40–14:22", 4, 3.0],
-  ["06.06.", "Sa", "02:52", 1, 1.0],
-  ["08.06.", "Mo", "11:29–03:00", 34, 10.5],
-  ["09.06.", "Di", "10:15–21:55", 22, 7.5],
-  ["10.06.", "Mi", "00:39–12:50", 6, 2.0],
-  ["11.06.", "Do", "12:44–12:55", 2, 1.0],
-  ["12.06.", "Fr", "00:19–01:07", 3, 1.5],
-  ["13.06.", "Sa", "00:55", 1, 1.0],
-  ["14.06.", "So", "03:32–23:17", 27, 6.0],
-  ["15.06.", "Mo", "10:12", 1, 1.0],
-  ["16.06.", "Di", "02:19–22:55", 10, 6.0],
-  ["17.06.", "Mi", "10:29–11:38", 3, 2.0],
-  ["18.06.", "Do", "09:59", 1, 1.0],
-  ["19.06.", "Fr", "12:48", 1, 1.0],
-  ["23.06.", "Di", "11:06–13:51", 8, 3.5],
-  ["24.06.", "Mi", "07:59–09:44", 7, 2.5],
-  ["26.06.", "Fr", "07:46–08:50", 4, 2.0],
+  ["03.06.", "Mi", "Kompetenzfelder, Trump-Case", 18, 3.5],
+  ["04.06.", "Do", "Backend-Lock, Logo", 20, 4.5],
+  ["05.06.", "Fr", "Auswertung v2 (Spinnennetz)", 4, 3.0],
+  ["06.06.", "Sa", "LLM-Self-Play", 1, 1.0],
+  ["08.06.", "Mo", "Login-Final, Agent-Tuning", 34, 10.5],
+  ["09.06.", "Di", "TURN/TLS-Relay", 22, 7.5],
+  ["10.06.", "Mi", "Invite ohne Daten, Format", 6, 2.0],
+  ["11.06.", "Do", "FallbackAdapter, Reconnect", 2, 1.0],
+  ["12.06.", "Fr", "Nutzer-ID, LiveKit-Update", 3, 1.5],
+  ["13.06.", "Sa", "Label „Nutzer-ID“", 1, 1.0],
+  ["14.06.", "So", "Nachbesprechung-Auswertung", 27, 6.0],
+  ["15.06.", "Mo", "Szenario-Ende-Marker", 1, 1.0],
+  ["16.06.", "Di", "Übung-2-Auswertung, Prompts", 10, 6.0],
+  ["17.06.", "Mi", "Charakter-Prompts & Porträts", 3, 2.0],
+  ["18.06.", "Do", "Einstiegs-Prompts", 1, 1.0],
+  ["19.06.", "Fr", "Trainingsmodus-Labels", 1, 1.0],
+  ["23.06.", "Di", "Mandanten-API, Fehler-Handling", 8, 3.5],
+  ["24.06.", "Mi", "Karten-Editor, Mandantenfilter", 7, 2.5],
+  ["26.06.", "Fr", "Mandanten-Picker, 3-Stufen-Rechte", 4, 2.0],
 ];
 
 function SheetTable({ rows, subLabel, subHours }: { rows: SheetRow[]; subLabel: string; subHours: number }) {
   return (
     <table className="sheet">
       <thead>
-        <tr><th>Datum</th><th>Tag</th><th>Zeitfenster</th><th className="r">Cmt.</th><th className="r">Std</th></tr>
+        <tr><th>Datum</th><th>Tag</th><th>Tätigkeit</th><th className="r">Cmt.</th><th className="r">Std</th></tr>
       </thead>
       <tbody>
         {rows.map(([d, wd, win, c, h]) => {
@@ -330,7 +330,7 @@ export default function Page() {
           <div style={{ flex: 1 }}>
             <h2><span className="num">04</span>Zeiterfassung · Detail</h2>
             <p style={{ fontSize: 12, color: "var(--muted)", marginBottom: 16, lineHeight: 1.6 }}>
-              Abgeleitet aus 351 Commits (ohne Merges) ab Beauftragung am 30.03.2026. Pro Arbeitstag: Zeitfenster vom ersten bis letzten Commit, Sessions mit mehr als 90 Minuten Pause getrennt gezählt. Vorarbeiten vom 13.03. (vor Beauftragung) sind nicht enthalten. Wochenenden rot markiert.
+              Abgeleitet aus 351 Commits (ohne Merges) ab Beauftragung am 30.03.2026. Tätigkeit und Stundenaufwand pro Arbeitstag aus den Commit-Zeiträumen (erster bis letzter Commit, Sessions mit mehr als 90 Minuten Pause getrennt gezählt). Vorarbeiten vom 13.03. (vor Beauftragung) sind nicht enthalten. Wochenenden rot markiert.
             </p>
 
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, alignItems: "start" }}>
