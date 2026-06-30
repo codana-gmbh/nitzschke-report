@@ -449,32 +449,32 @@ export default function Page() {
                 <tr>
                   <td><strong>Architektur &amp; Spezifikation</strong></td>
                   <td>Design-Spec, Implementierungsplan (März)</td>
-                  <td style={{ textAlign: "right" }}>10 – 15 h</td>
+                  <td style={{ textAlign: "right" }}>10 h</td>
                 </tr>
                 <tr>
                   <td><strong>Kernplattform &amp; Login</strong></td>
                   <td>PRs #1–8 (Login, Landing, Invite, Avatar, TTS)</td>
-                  <td style={{ textAlign: "right" }}>20 – 25 h</td>
+                  <td style={{ textAlign: "right" }}>20 h</td>
                 </tr>
                 <tr>
                   <td><strong>Auswertungs-Pipeline</strong></td>
                   <td>PRs #16, #21, #33, #42–44, #54–58, #82–96</td>
-                  <td style={{ textAlign: "right" }}>30 – 40 h</td>
+                  <td style={{ textAlign: "right" }}>30 h</td>
                 </tr>
                 <tr>
                   <td><strong>Infrastruktur &amp; Monitoring</strong></td>
                   <td>TURN/TLS #46–51, Grafana/Loki #25–28, Reconnect #62</td>
-                  <td style={{ textAlign: "right" }}>20 – 28 h</td>
+                  <td style={{ textAlign: "right" }}>20 h</td>
                 </tr>
                 <tr>
                   <td><strong>Admin-Bereich</strong></td>
                   <td>PRs #30, #53, #77, #106, #109–113</td>
-                  <td style={{ textAlign: "right" }}>18 – 24 h</td>
+                  <td style={{ textAlign: "right" }}>18 h</td>
                 </tr>
                 <tr>
                   <td><strong>DSGVO &amp; Nutzer-ID</strong></td>
                   <td>PRs #60, #63, #68–70</td>
-                  <td style={{ textAlign: "right" }}>8 – 12 h</td>
+                  <td style={{ textAlign: "right" }}>8 h</td>
                 </tr>
                 <tr>
                   <td><strong>Mandantensystem</strong></td>
@@ -484,27 +484,27 @@ export default function Page() {
                 <tr>
                   <td><strong>Content &amp; Prompts</strong></td>
                   <td>PRs #88–100 (Charaktere, startPrompts, Labels)</td>
-                  <td style={{ textAlign: "right" }}>10 – 14 h</td>
+                  <td style={{ textAlign: "right" }}>10 h</td>
                 </tr>
                 <tr>
                   <td><strong>Bugfixes &amp; Stabilisierung</strong></td>
                   <td>~30 Fix-PRs</td>
-                  <td style={{ textAlign: "right" }}>15 – 22 h</td>
+                  <td style={{ textAlign: "right" }}>15 h</td>
                 </tr>
                 <tr>
                   <td><strong>Deployment &amp; Betrieb</strong></td>
                   <td>VPS-Setup, Docker, Auto-Deploy, Staging</td>
-                  <td style={{ textAlign: "right" }}>12 – 16 h</td>
+                  <td style={{ textAlign: "right" }}>12 h</td>
                 </tr>
                 <tr style={{ background: "var(--red-soft)" }}>
                   <td colSpan={2}><strong>Gesamt (Schätzung)</strong></td>
-                  <td style={{ textAlign: "right" }}><strong>149 – 202 h</strong></td>
+                  <td style={{ textAlign: "right" }}><strong><strong>149 h</strong></strong></td>
                 </tr>
               </tbody>
             </table>
 
             <div className="note" style={{ marginTop: 14 }}>
-              <strong>Methodik:</strong> Die Schätzung basiert auf der Komplexität der 122 Pull Requests. Das Mandantensystem war mit <strong>6 h</strong> kalkuliert und hat exakt gepasst. Der Gesamtbereich liegt bei einem Tagessatz von 950 €/Tag (8 h) zwischen ca. <strong>~17.700 € und ~24.000 € netto</strong>.
+              <strong>Methodik:</strong> Die Schätzung basiert auf der Komplexität der 122 Pull Requests. Das Mandantensystem war mit <strong>6 h</strong> kalkuliert und hat exakt gepasst. Der Gesamtbereich liegt bei einem Tagessatz von 950 €/Tag (8 h) zwischen ca. <strong>~17.700 € netto</strong>.
             </div>
 
             <div className="note good">
@@ -555,8 +555,8 @@ export default function Page() {
             <div className="invest-hero" style={{ marginTop: 28 }}>
               <div className="invest-label">Entwicklungsaufwand (geschätzt)</div>
               <div className="invest-range">
-                149 – 202 Stunden
-                <small>davon 6 h Mandantensystem (nicht im Angebot)</small>
+                149 Stunden
+                <small>davon 6 h Mandantensystem</small>
               </div>
               <div className="invest-sub">122 Pull Requests · März – Juni 2026 · Live auf nitzschke.ai</div>
             </div>
