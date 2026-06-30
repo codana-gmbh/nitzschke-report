@@ -38,15 +38,15 @@ const SHEET_B: SheetRow[] = [
   ["11.06.", "Do", "FallbackAdapter, Reconnect", 2, 1.0],
   ["12.06.", "Fr", "Nutzer-ID, LiveKit-Update", 3, 1.5],
   ["13.06.", "Sa", "Label „Nutzer-ID“", 1, 1.0],
-  ["14.06.", "So", "Nachbesprechung-Auswertung", 27, 6.0],
+  ["14.06.", "So", "Nachbesprechung-Auswertung", 27, 7.0],
   ["15.06.", "Mo", "Szenario-Ende-Marker", 1, 1.0],
-  ["16.06.", "Di", "Übung-2-Auswertung, Prompts", 10, 6.0],
+  ["16.06.", "Di", "Übung-2-Auswertung, Prompts", 10, 7.0],
   ["17.06.", "Mi", "Charakter-Prompts & Porträts", 3, 2.0],
   ["18.06.", "Do", "Einstiegs-Prompts", 1, 1.0],
   ["19.06.", "Fr", "Trainingsmodus-Labels", 1, 1.0],
-  ["23.06.", "Di", "Mandanten-API, Fehler-Handling", 8, 3.5],
-  ["24.06.", "Mi", "Karten-Editor, Mandantenfilter", 7, 2.5],
-  ["26.06.", "Fr", "Mandanten-Picker, 3-Stufen-Rechte", 4, 2.0],
+  ["23.06.", "Di", "Mandanten-API, Fehler-Handling", 8, 2.5],
+  ["24.06.", "Mi", "Karten-Editor, Mandantenfilter", 7, 2.0],
+  ["26.06.", "Fr", "Mandanten-Picker, 3-Stufen-Rechte", 4, 1.5],
 ];
 
 function SheetTable({ rows, subLabel, subHours }: { rows: SheetRow[]; subLabel: string; subHours: number }) {
