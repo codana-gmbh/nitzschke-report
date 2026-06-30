@@ -203,41 +203,18 @@ export default function Page() {
         <div className="page">
           <PageHeader />
           <div style={{ flex: 1 }}>
-            <h2><span className="num">04</span>Zusatzleistungen <span style={{ fontSize: 14, fontWeight: 500, color: "var(--muted)" }}>(nicht im Angebot)</span></h2>
+            <h2><span className="num">04</span>Unter der Haube</h2>
+            <p className="lead">Folgende Aufgaben wurden zusätzlich umgesetzt — ohne gesonderte Beauftragung oder Aufpreis.</p>
 
             <ul className="extra-list">
-              <li>
-                <strong>Mandantensystem (Multi-Tenant)</strong>
-                <span>Organisationen anlegen, Nutzer per Suchpicker zuordnen, Szenario-Karten in 3 Stufen kuratieren (Aktiv / Gesperrt / Deaktiviert). PRs #103–122.</span>
-              </li>
-              <li>
-                <strong>TURN/TLS-Relay</strong>
-                <span>Eingebetteter TURN-Server auf Port 443 — WebRTC läuft auch durch Unternehmensfirewalls. PRs #46–51, #62.</span>
-              </li>
-              <li>
-                <strong>LLM-Debug Self-Play</strong>
-                <span>Zwei LLMs führen automatisch ein Gespräch und werden direkt ausgewertet — für Prompt-Tests ohne echte Nutzer. PRs #19, #24.</span>
-              </li>
-              <li>
-                <strong>Loki/Grafana-Monitoring</strong>
-                <span>Selbstgehostetes Observability-Stack, strukturierte Logs mit Correlation IDs, öffentliche Verbindungsdiagnose-Seite. PRs #25–28.</span>
-              </li>
-              <li>
-                <strong>Einladungscode ohne E-Mail</strong>
-                <span>Registrierung per Link, keine personenbezogenen Daten erforderlich. PR #60.</span>
-              </li>
-              <li>
-                <strong>Nutzer-ID statt E-Mail</strong>
-                <span>Login komplett ohne E-Mail — frei wählbare Nutzer-ID. PRs #68–70.</span>
-              </li>
-              <li>
-                <strong>Admin-Debug-Panel (Live)</strong>
-                <span>Agent-Zustand, Verbindungsparameter und Prompt in Echtzeit während laufender Session. PR #77.</span>
-              </li>
-              <li>
-                <strong>Staging-Server</strong>
-                <span>Isolierter Stack unter staging.nitzschke.ai, eigene DB, Auto-Deploy aus development-Branch.</span>
-              </li>
+              <li><strong>Mandantensystem</strong><span>Organisationen, Nutzer-Zuweisung, 3-Stufen-Kuratierung (Aktiv / Gesperrt / Deaktiviert).</span></li>
+              <li><strong>TURN/TLS-Relay</strong><span>WebRTC läuft auch durch Unternehmensfirewalls — Port 443, kein offener UDP nötig.</span></li>
+              <li><strong>Loki/Grafana-Monitoring</strong><span>Vollständiges Logging mit Correlation IDs, öffentliche Verbindungsdiagnose-Seite.</span></li>
+              <li><strong>Nutzer-ID statt E-Mail</strong><span>Datenschutzkonformer Login ohne personenbezogene Daten — frei wählbare Kennung.</span></li>
+              <li><strong>Einladungscode-Flow</strong><span>Registrierung per Link, kein E-Mail-Pflichtfeld.</span></li>
+              <li><strong>Admin-Debug-Panel</strong><span>Agent-Zustand, Prompt und Verbindungsparameter in Echtzeit während laufender Session.</span></li>
+              <li><strong>LLM-Self-Play</strong><span>Automatische Testgespräche zwischen zwei KI-Instanzen zur Prompt-Validierung.</span></li>
+              <li><strong>Staging-Server</strong><span>Isolierter Stack unter staging.nitzschke.ai mit Auto-Deploy aus dem development-Branch.</span></li>
             </ul>
           </div>
           <PageFooter page={4} />
