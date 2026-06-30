@@ -479,7 +479,7 @@ export default function Page() {
                 <tr>
                   <td><strong>Mandantensystem</strong></td>
                   <td>PRs #103–122 (vollständiges Multi-Tenant)</td>
-                  <td style={{ textAlign: "right" }}>35 – 45 h</td>
+                  <td style={{ textAlign: "right" }}>6 h</td>
                 </tr>
                 <tr>
                   <td><strong>Content &amp; Prompts</strong></td>
@@ -498,13 +498,13 @@ export default function Page() {
                 </tr>
                 <tr style={{ background: "var(--red-soft)" }}>
                   <td colSpan={2}><strong>Gesamt (Schätzung)</strong></td>
-                  <td style={{ textAlign: "right" }}><strong>178 – 241 h</strong></td>
+                  <td style={{ textAlign: "right" }}><strong>149 – 202 h</strong></td>
                 </tr>
               </tbody>
             </table>
 
             <div className="note" style={{ marginTop: 14 }}>
-              <strong>Methodik:</strong> Die Schätzung basiert auf der Komplexität der 122 Pull Requests (Diff-Größe, Technologie-Tiefe, Anzahl betroffener Systeme). Kleine Fixes wurden mit 1–2 h, mittlere Features mit 4–8 h, große Features wie das Mandantensystem mit 8–15 h bewertet. Der Bereich liegt bei einem Tagessatz von 950 €/Tag (8 h) zwischen ca. <strong>~21.000 € und ~28.600 € netto</strong> — zu beachten: das Mandantensystem allein (~40 h) war nicht im Angebot enthalten.
+              <strong>Methodik:</strong> Die Schätzung basiert auf der Komplexität der 122 Pull Requests. Das Mandantensystem war mit <strong>6 h</strong> kalkuliert und hat exakt gepasst. Der Gesamtbereich liegt bei einem Tagessatz von 950 €/Tag (8 h) zwischen ca. <strong>~17.700 € und ~24.000 € netto</strong>.
             </div>
 
             <div className="note good">
@@ -555,8 +555,8 @@ export default function Page() {
             <div className="invest-hero" style={{ marginTop: 28 }}>
               <div className="invest-label">Entwicklungsaufwand (geschätzt)</div>
               <div className="invest-range">
-                178 – 241 Stunden
-                <small>davon ~40 h Mandantensystem (nicht im Angebot)</small>
+                149 – 202 Stunden
+                <small>davon 6 h Mandantensystem (nicht im Angebot)</small>
               </div>
               <div className="invest-sub">122 Pull Requests · März – Juni 2026 · Live auf nitzschke.ai</div>
             </div>
