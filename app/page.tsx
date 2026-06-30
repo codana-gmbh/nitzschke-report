@@ -98,23 +98,19 @@ export default function Page() {
             </div>
 
             <h2 style={{ marginTop: 32 }}><span className="num">02</span>Was im Angebot stand</h2>
-            <p style={{ marginBottom: 12, color: "var(--muted)", fontSize: 13 }}>Angebot vom 02.03.2026 · MVP in zwei Wochen · 10 Leistungsbausteine</p>
+            <p style={{ marginBottom: 12, color: "var(--muted)", fontSize: 13 }}>Angebot AG5930 vom 20.03.2026 · 119 Stunden · 14.131,25 € netto · 5 Positionen</p>
 
             <table>
               <thead>
-                <tr><th>#</th><th>Baustein</th><th>Kerninhalt</th></tr>
+                <tr><th>Pos.</th><th>Leistung</th><th style={{ textAlign: "right" }}>h</th><th style={{ textAlign: "right" }}>€ netto</th></tr>
               </thead>
               <tbody>
-                <tr><td>1</td><td><strong>Web-App</strong></td><td>Login → Gespräch → Auto-Stopp → Ergebnisse</td></tr>
-                <tr><td>2</td><td><strong>KI-Sprachsteuerung</strong></td><td>ElevenLabs/ConvAI, geringe Latenz, natürliche Stimme</td></tr>
-                <tr><td>3</td><td><strong>Backend</strong></td><td>API-Keys serverseitig, Rate-Limiting</td></tr>
-                <tr><td>4</td><td><strong>Login &amp; Rollen</strong></td><td>E-Mail + Passwort, Nutzer- und Admin-Rolle</td></tr>
-                <tr><td>5</td><td><strong>10-Minuten-Timer</strong></td><td>Server-autoritär, Countdown, harter Stopp</td></tr>
-                <tr><td>6</td><td><strong>Datenspeicherung</strong></td><td>Session-Metadaten, Dauer, Ergebnisse</td></tr>
-                <tr><td>7</td><td><strong>KI-Auswertung</strong></td><td>LLM-Analyse, Spinnennetz-Diagramm, PDF-Export</td></tr>
-                <tr><td>8</td><td><strong>Admin-Bereich</strong></td><td>Sessions, Nutzer, Filter, CSV/JSON-Export</td></tr>
-                <tr><td>9</td><td><strong>DSGVO &amp; Stabilität</strong></td><td>Privacy by Design, Logging, Correlation IDs</td></tr>
-                <tr><td>10</td><td><strong>Übergabe &amp; Betrieb</strong></td><td>Installierbares Paket, Server-Anleitung</td></tr>
+                <tr><td>1</td><td><strong>Konzeption &amp; Architektur</strong> — Systemarchitektur, Datenmodell, API-Kontrakt</td><td style={{ textAlign: "right" }}>12</td><td style={{ textAlign: "right" }}>1.425,00</td></tr>
+                <tr><td>2</td><td><strong>Web App (Next.js)</strong> — Auth, Voice UI, Timer, Ergebnisse, Kompetenzfelder</td><td style={{ textAlign: "right" }}>44</td><td style={{ textAlign: "right" }}>5.225,00</td></tr>
+                <tr><td>3</td><td><strong>Backend API &amp; Datenhaltung</strong> — Proxy, Session-Engine, LLM-Pipeline, Admin</td><td style={{ textAlign: "right" }}>33</td><td style={{ textAlign: "right" }}>3.918,75</td></tr>
+                <tr><td>4</td><td><strong>Deployment &amp; QS</strong> — Integration-Tests, Docker, Monitoring</td><td style={{ textAlign: "right" }}>6</td><td style={{ textAlign: "right" }}>712,50</td></tr>
+                <tr><td>5</td><td><strong>ConvAI / LiveKit Integration</strong> — Speech-to-Speech via WebSDK</td><td style={{ textAlign: "right" }}>24</td><td style={{ textAlign: "right" }}>2.850,00</td></tr>
+                <tr style={{ background: "var(--paper-2)" }}><td></td><td><strong>Summe</strong></td><td style={{ textAlign: "right" }}><strong>119</strong></td><td style={{ textAlign: "right" }}><strong>14.131,25</strong></td></tr>
               </tbody>
             </table>
           </div>
@@ -300,29 +296,41 @@ export default function Page() {
 
             <table style={{ marginTop: 24 }}>
               <thead>
-                <tr><th>Bereich</th><th style={{ textAlign: "right" }}>h</th></tr>
+                <tr><th>Bereich</th><th style={{ textAlign: "right" }}>h</th><th style={{ textAlign: "right", fontSize: 11 }}>Basis</th></tr>
               </thead>
               <tbody>
+                <tr className="section-header"><td colSpan={3}>Im Angebot AG5930 enthalten (119 h · 14.131,25 € netto)</td></tr>
                 {[
-                  ["Architektur & Spec", 10],
-                  ["Kernplattform & Login", 20],
-                  ["Auswertungs-Pipeline", 30],
-                  ["Infrastruktur & Monitoring", 20],
-                  ["Admin-Bereich", 18],
-                  ["DSGVO & Nutzer-ID", 8],
-                  ["Mandantensystem", 6],
-                  ["Content & Prompts", 10],
-                  ["Bugfixes & Stabilisierung", 15],
-                  ["Deployment & Betrieb", 12],
+                  ["Konzeption & Architektur", 12],
+                  ["Web App (Next.js) — UI, Timer, Ergebnisse", 44],
+                  ["Backend API & LLM-Pipeline", 33],
+                  ["Deployment & QS", 6],
+                  ["ConvAI / LiveKit Integration", 24],
                 ].map(([label, h]) => (
                   <tr key={label as string}>
                     <td>{label}</td>
                     <td style={{ textAlign: "right" }}>{h} h</td>
+                    <td style={{ textAlign: "right", fontSize: 11, color: "var(--muted)" }}>AG5930</td>
+                  </tr>
+                ))}
+                <tr className="section-header"><td colSpan={3}>Per E-Mail beauftragt &amp; abgenommen (+30 h)</td></tr>
+                {[
+                  ["Nutzer-ID statt E-Mail (Datenschutz)", 8],
+                  ["Mandantensystem (Prio 3 per Mail)", 6],
+                  ["TURN/TLS-Relay für Firewalls", 8],
+                  ["Loki/Grafana-Monitoring", 5],
+                  ["Bugfixes & Stabilisierung", 3],
+                ].map(([label, h]) => (
+                  <tr key={label as string}>
+                    <td>{label}</td>
+                    <td style={{ textAlign: "right" }}>{h} h</td>
+                    <td style={{ textAlign: "right", fontSize: 11, color: "var(--muted)" }}>Mail</td>
                   </tr>
                 ))}
                 <tr style={{ background: "var(--red-soft)" }}>
                   <td><strong>Gesamt</strong></td>
-                  <td style={{ textAlign: "right" }}><strong>149 h · ~17.700 € netto</strong></td>
+                  <td style={{ textAlign: "right" }}><strong>149 h</strong></td>
+                  <td style={{ textAlign: "right", fontSize: 11 }}><strong>~17.700 € netto</strong></td>
                 </tr>
               </tbody>
             </table>
