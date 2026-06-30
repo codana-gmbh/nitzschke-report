@@ -7,7 +7,6 @@ const REPORT_DATE = "30.06.2026";
 // [Datum, Tag, Zeitfenster, Commits, Stunden]
 type SheetRow = [string, string, string, number, number];
 const SHEET_A: SheetRow[] = [
-  ["13.03.", "Fr", "12:48–15:36", 25, 3.5],
   ["02.04.", "Do", "09:41", 1, 1.0],
   ["03.04.", "Fr", "02:47–23:47", 11, 3.0],
   ["04.04.", "Sa", "02:11–17:07", 18, 5.0],
@@ -268,10 +267,10 @@ export default function Page() {
                 <table>
                   <tbody>
                     <tr><td>Abgerechnet</td><td style={{ textAlign: "right" }}>95,0 h</td></tr>
-                    <tr><td>Erfasst <span style={{ fontSize: 10, color: "var(--muted)" }}>(aus 376 Commits)</span></td><td style={{ textAlign: "right" }}>110,5 h</td></tr>
+                    <tr><td>Erfasst <span style={{ fontSize: 10, color: "var(--muted)" }}>(aus 351 Commits)</span></td><td style={{ textAlign: "right" }}>107,0 h</td></tr>
                     <tr style={{ background: "var(--paper-2)" }}>
                       <td><strong>Mehraufwand</strong> <span style={{ fontSize: 10, color: "var(--muted)" }}>(ohne Aufpreis)</span></td>
-                      <td style={{ textAlign: "right" }}><strong>+15,5 h</strong></td>
+                      <td style={{ textAlign: "right" }}><strong>+12,0 h</strong></td>
                     </tr>
                   </tbody>
                 </table>
@@ -287,7 +286,7 @@ export default function Page() {
                 </table>
 
                 <p style={{ fontSize: 11, color: "var(--muted)", lineHeight: 1.6, marginTop: 10 }}>
-                  Abgerechnet wurde die Schlussrechnung RE6118 (Angebot AG5930, Pos. 1–4 ohne ConvAI). Die aus den Commits abgeleitete Zeiterfassung liegt mit 110,5 h rund 15,5 h über der abgerechneten Menge — dieser Mehraufwand sowie alle rechts gelisteten Zusatzleistungen wurden ohne Aufpreis umgesetzt. Das optionale Angebot „3D-Avatare" ist freigegeben und wird separat umgesetzt.
+                  Abgerechnet wurde die Schlussrechnung RE6118 (Angebot AG5930, Pos. 1–4 ohne ConvAI). Die aus den Commits ab Beauftragung (30.03.) abgeleitete Zeiterfassung liegt mit 107,0 h rund 12 h über der abgerechneten Menge — dieser Mehraufwand sowie alle rechts gelisteten Zusatzleistungen wurden ohne Aufpreis umgesetzt. Das optionale Angebot „3D-Avatare" ist freigegeben und wird separat umgesetzt.
                 </p>
               </div>
 
@@ -331,11 +330,11 @@ export default function Page() {
           <div style={{ flex: 1 }}>
             <h2><span className="num">04</span>Zeiterfassung · Detail</h2>
             <p style={{ fontSize: 12, color: "var(--muted)", marginBottom: 16, lineHeight: 1.6 }}>
-              Abgeleitet aus 376 Commits (ohne Merges) im Repository. Pro Arbeitstag: Zeitfenster vom ersten bis letzten Commit, Sessions mit mehr als 90 Minuten Pause getrennt gezählt. Wochenenden rot markiert.
+              Abgeleitet aus 351 Commits (ohne Merges) ab Beauftragung am 30.03.2026. Pro Arbeitstag: Zeitfenster vom ersten bis letzten Commit, Sessions mit mehr als 90 Minuten Pause getrennt gezählt. Vorarbeiten vom 13.03. (vor Beauftragung) sind nicht enthalten. Wochenenden rot markiert.
             </p>
 
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, alignItems: "start" }}>
-              <SheetTable rows={SHEET_A} subLabel="Zwischensumme März – Mai" subHours={50.0} />
+              <SheetTable rows={SHEET_A} subLabel="Zwischensumme April – Mai" subHours={46.5} />
               <SheetTable rows={SHEET_B} subLabel="Zwischensumme Juni" subHours={60.5} />
             </div>
 
@@ -343,17 +342,17 @@ export default function Page() {
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <div style={{ textAlign: "left" }}>
                   <div className="invest-label" style={{ marginBottom: 4 }}>Erfasste Entwicklungszeit</div>
-                  <div style={{ fontSize: 12, color: "rgba(255,255,255,.6)" }}>39 Arbeitstage · 376 Commits · 13.03. – 26.06.2026</div>
+                  <div style={{ fontSize: 12, color: "rgba(255,255,255,.6)" }}>38 Arbeitstage · 351 Commits · 30.03. – 26.06.2026</div>
                 </div>
-                <div style={{ fontFamily: "var(--font-inter-tight)", fontSize: 40, fontWeight: 700, letterSpacing: "-.025em" }}>110,5 h</div>
+                <div style={{ fontFamily: "var(--font-inter-tight)", fontSize: 40, fontWeight: 700, letterSpacing: "-.025em" }}>107,0 h</div>
               </div>
             </div>
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 12, marginTop: 16 }}>
-              <div className="kpi-box"><div className="kv">3,5 h</div><div className="kl">März</div></div>
               <div className="kpi-box"><div className="kv">34,5 h</div><div className="kl">April</div></div>
               <div className="kpi-box"><div className="kv">12,0 h</div><div className="kl">Mai</div></div>
-              <div className="kpi-box"><div className="kv red">60,5 h</div><div className="kl">Juni</div></div>
+              <div className="kpi-box"><div className="kv">60,5 h</div><div className="kl">Juni</div></div>
+              <div className="kpi-box"><div className="kv red">107,0 h</div><div className="kl">Gesamt</div></div>
             </div>
           </div>
           <PageFooter page={4} />
