@@ -1,6 +1,6 @@
 "use client";
 
-const TOTAL_PAGES = 3;
+const TOTAL_PAGES = 2;
 const REPORT_DATE = "30.06.2026";
 
 // Zeiterfassung aus 351 Commits (Nicht-Merge) ab Beauftragung 30.03. Sessions getrennt bei >90 Min Pause.
@@ -179,41 +179,7 @@ export default function Page() {
 
       <div className="doc">
 
-        {/* ===== PAGE 1 · COVER ===== */}
-        <div className="page cover">
-          <div className="page-header cover-top">
-            <Brand />
-            <div>Projektabschlussbericht</div>
-          </div>
-          <div style={{ marginTop: 40 }}>
-            <div style={{ fontSize: 11, letterSpacing: "0.18em", color: "var(--muted)", textTransform: "uppercase", marginBottom: 20 }}>
-              Nitzschke · Vertraulich
-            </div>
-            <h1 className="cover-title">
-              KI-Gesprächspartner<br />
-              für <span>modernes</span><br />
-              Kompetenztraining.
-            </h1>
-            <div style={{ marginTop: 36, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, fontSize: 13 }}>
-              {[
-                ["Auftraggeber", "Nitzschke GmbH"],
-                ["Erstellt von", "Codana GmbH"],
-                ["Angebot", "AG5930 · 20.03.2026"],
-                ["Projektstart", "März 2026"],
-                ["Abnahme", "26.06.2026"],
-                ["Status", "✅ Live · nitzschke.ai"],
-              ].map(([label, value]) => (
-                <div key={label}>
-                  <div style={{ color: "var(--muted)", marginBottom: 4 }}>{label}</div>
-                  <div style={{ fontWeight: 600 }}>{value}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <PageFooter page={1} />
-        </div>
-
-        {/* ===== PAGE 2 · ALLE TASKS ===== */}
+        {/* ===== PAGE 1 · ALLE TASKS ===== */}
         <div className="page">
           <PageHeader />
           <div style={{ flex: 1 }}>
@@ -230,38 +196,60 @@ export default function Page() {
               ))}
             </div>
           </div>
-          <PageFooter page={2} />
+          <PageFooter page={1} />
         </div>
 
-        {/* ===== PAGE 3 · ZEITERFASSUNG (DETAIL) ===== */}
+        {/* ===== PAGE 2 · ZEITERFASSUNG (DETAIL) ===== */}
         <div className="page">
           <PageHeader />
           <div style={{ flex: 1 }}>
-            <h2 style={{ marginBottom: 20 }}><span className="num">03</span>Zeiterfassung · Detail</h2>
+            <h2 style={{ marginBottom: 20 }}><span className="num">02</span>Zeiterfassung · Detail</h2>
 
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, alignItems: "start" }}>
               <SheetTable rows={SHEET_A} subLabel="Zwischensumme April – Mai" subHours={46.5} />
               <SheetTable rows={SHEET_B} subLabel="Zwischensumme Juni" subHours={60.5} />
             </div>
 
-            <div className="invest-hero" style={{ marginTop: 24, padding: "20px 24px" }}>
+            <h3 style={{ marginTop: 28 }}>Abrechnung <span style={{ fontSize: 11, color: "var(--muted)", fontWeight: 400 }}>· Stundensatz 118,75 € netto</span></h3>
+            <table style={{ marginTop: 8 }}>
+              <thead>
+                <tr><th>Leistung</th><th style={{ textAlign: "right" }}>h</th><th style={{ textAlign: "right" }}>€ netto</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Bereits bezahlt <span style={{ fontSize: 11, color: "var(--muted)" }}>· Schlussrechnung RE6118</span></td>
+                  <td style={{ textAlign: "right" }}>95,0</td>
+                  <td style={{ textAlign: "right" }}>11.281,25</td>
+                </tr>
+                <tr>
+                  <td>Mandantensystem</td>
+                  <td style={{ textAlign: "right" }}>6,0</td>
+                  <td style={{ textAlign: "right" }}>712,50</td>
+                </tr>
+                <tr>
+                  <td>Zusätzliche Anpassungen</td>
+                  <td style={{ textAlign: "right" }}>6,0</td>
+                  <td style={{ textAlign: "right" }}>712,50</td>
+                </tr>
+                <tr style={{ background: "var(--red-soft)" }}>
+                  <td><strong>Gesamt</strong></td>
+                  <td style={{ textAlign: "right" }}><strong>107,0</strong></td>
+                  <td style={{ textAlign: "right" }}><strong>12.706,25</strong></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div className="invest-hero" style={{ marginTop: 16, padding: "20px 24px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <div style={{ textAlign: "left" }}>
-                  <div className="invest-label" style={{ marginBottom: 4 }}>Erfasste Entwicklungszeit</div>
-                  <div style={{ fontSize: 12, color: "rgba(255,255,255,.6)" }}>38 Arbeitstage · 30.03. – 26.06.2026</div>
+                  <div className="invest-label" style={{ marginBottom: 4 }}>Erfasste Entwicklungszeit gesamt</div>
+                  <div style={{ fontSize: 12, color: "rgba(255,255,255,.6)" }}>95 h bezahlt + 12 h zusätzlich · 12.706,25 € netto</div>
                 </div>
                 <div style={{ fontFamily: "var(--font-inter-tight)", fontSize: 40, fontWeight: 700, letterSpacing: "-.025em" }}>107,0 h</div>
               </div>
             </div>
-
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 12, marginTop: 16 }}>
-              <div className="kpi-box"><div className="kv">34,5 h</div><div className="kl">April</div></div>
-              <div className="kpi-box"><div className="kv">12,0 h</div><div className="kl">Mai</div></div>
-              <div className="kpi-box"><div className="kv">60,5 h</div><div className="kl">Juni</div></div>
-              <div className="kpi-box"><div className="kv red">107,0 h</div><div className="kl">Gesamt</div></div>
-            </div>
           </div>
-          <PageFooter page={3} />
+          <PageFooter page={2} />
         </div>
 
       </div>
