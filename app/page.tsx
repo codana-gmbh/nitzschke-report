@@ -1,6 +1,6 @@
 "use client";
 
-const TOTAL_PAGES = 7;
+const TOTAL_PAGES = 3;
 const REPORT_DATE = "30.06.2026";
 
 function Brand() {
@@ -30,6 +30,71 @@ function PageFooter({ page }: { page: number }) {
   );
 }
 
+const TASKS: [string, string[]][] = [
+  ["Kernplattform", [
+    "Next.js-Projektsetup & Deployment-Pipeline",
+    "Login / Registrierung mit Invite-Code",
+    "Nutzer- und Admin-Rollentrennung",
+    "Szenario-Auswahl & Briefing-Screen",
+    "Avatar-Bilder & Text-Fallback",
+    "Kompetenzfelder Kommunikation & Typen",
+    "Szenario-Karten-Editor im Admin",
+    "\"How to\"-Menü & Onboarding-Text",
+    "Donald Trump als Featured Case",
+    "Impressum-Seite",
+  ]],
+  ["KI & Voice", [
+    "LiveKit-Integration (WebRTC)",
+    "ElevenLabs TTS-Anbindung",
+    "MAI-Voice-2 als Fallback-Anbieter",
+    "Python-Agent als Proxy-Backend",
+    "LLM-Persona & Prompt-Verwaltung",
+    "Charakter-Prompts (Sandra, Typen, Trump)",
+    "Dialog-Modus C (Lisa Müller)",
+    "LLM-Self-Play für Prompt-Tests",
+    "10-Minuten-Timer (server-autoritär)",
+    "30-Sekunden-Vorwarnung & Hard Stop",
+    "Auto-Redirect nach Session-Ende",
+  ]],
+  ["Auswertung", [
+    "LLM-Webhook nach Session-Ende",
+    "9-Kategorien-Spinnennetz-Diagramm",
+    "Scorecard-Ansicht",
+    "3 Auswertungsmodi (Übung 1/2/C)",
+    "PDF-Export der Auswertung",
+    "Admin: Alle Auswertungen einsehen",
+    "Auswertungs-Protokoll (Mark Format)",
+  ]],
+  ["Admin & Daten", [
+    "Session-Übersicht & Filter",
+    "Nutzerverwaltung (anlegen / löschen)",
+    "CSV / JSON-Export",
+    "Turn-Threshold-Konfiguration",
+    "Base-Prompt-Editor",
+    "Admin-Debug-Panel live",
+    "Supabase Datenmodell & Migrationen",
+    "GDPR-konformes Logging",
+  ]],
+  ["Infrastruktur", [
+    "Hetzner VPS Setup",
+    "Docker-Compose Stack",
+    "Auto-Deploy aus master (Cron)",
+    "Staging-Server staging.nitzschke.ai",
+    "Auto-Deploy aus development-Branch",
+    "TURN/TLS-Relay auf Port 443",
+    "Relay-Reconnect & FallbackAdapter",
+    "Verbindungsdiagnose-Seite (öffentlich)",
+    "Loki/Grafana-Monitoring",
+    "Structured Logs mit Correlation IDs",
+  ]],
+  ["Datenschutz", [
+    "Nutzer-ID statt E-Mail-Pflicht",
+    "Einladungscode ohne persönliche Daten",
+    "API-Keys ausschließlich serverseitig",
+    "Privacy by Design (kein PII im Log)",
+  ]],
+];
+
 export default function Page() {
   return (
     <>
@@ -52,7 +117,6 @@ export default function Page() {
             <Brand />
             <div>Projektabschlussbericht</div>
           </div>
-
           <div style={{ marginTop: 40 }}>
             <div style={{ fontSize: 11, letterSpacing: "0.18em", color: "var(--muted)", textTransform: "uppercase", marginBottom: 20 }}>
               Nitzschke · Vertraulich
@@ -62,16 +126,13 @@ export default function Page() {
               für <span>modernes</span><br />
               Kompetenztraining.
             </h1>
-            <p style={{ marginTop: 16, fontSize: 15, color: "var(--muted)", maxWidth: 480, lineHeight: 1.6 }}>
-              Was versprochen wurde, was geliefert wurde — und was darüber hinaus entstand.
-            </p>
             <div style={{ marginTop: 36, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, fontSize: 13 }}>
               {[
-                ["Auftraggeber", "Nitzschke"],
+                ["Auftraggeber", "Nitzschke GmbH"],
                 ["Erstellt von", "Codana GmbH"],
+                ["Angebot", "AG5930 · 20.03.2026"],
                 ["Projektstart", "März 2026"],
-                ["Berichtsdatum", REPORT_DATE],
-                ["Angebotsdatum", "02.03.2026"],
+                ["Abnahme", "26.06.2026"],
                 ["Status", "✅ Live · nitzschke.ai"],
               ].map(([label, value]) => (
                 <div key={label}>
@@ -84,360 +145,110 @@ export default function Page() {
           <PageFooter page={1} />
         </div>
 
-        {/* ===== PAGE 2 · KENNZAHLEN + ANGEBOT ===== */}
+        {/* ===== PAGE 2 · ALLE TASKS ===== */}
         <div className="page">
           <PageHeader />
           <div style={{ flex: 1 }}>
-            <h2><span className="num">01</span>Kennzahlen</h2>
+            <h2><span className="num">01</span>Alle umgesetzten Aufgaben</h2>
 
-            <div className="kpi-row">
-              <div className="kpi-box"><div className="kv red">122</div><div className="kl">Pull Requests</div></div>
-              <div className="kpi-box"><div className="kv">10/10</div><div className="kl">Angebot-Punkte</div></div>
-              <div className="kpi-box"><div className="kv red">+8</div><div className="kl">Zusatz-Features</div></div>
-              <div className="kpi-box"><div className="kv">149 h</div><div className="kl">Aufwand (geschätzt)</div></div>
+            <div className="task-grid">
+              {TASKS.map(([group, items]) => (
+                <div key={group} className="task-group">
+                  <div className="task-group-label">{group}</div>
+                  {items.map(item => (
+                    <div key={item} className="task-item">✓ {item}</div>
+                  ))}
+                </div>
+              ))}
             </div>
-
-            <h2 style={{ marginTop: 32 }}><span className="num">02</span>Was im Angebot stand</h2>
-            <p style={{ marginBottom: 12, color: "var(--muted)", fontSize: 13 }}>Angebot AG5930 vom 20.03.2026 · 119 Stunden · 14.131,25 € netto · 5 Positionen</p>
-
-            <table>
-              <thead>
-                <tr><th>Pos.</th><th>Leistung</th><th style={{ textAlign: "right" }}>h</th><th style={{ textAlign: "right" }}>€ netto</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>1</td><td><strong>Konzeption &amp; Architektur</strong> — Systemarchitektur, Datenmodell, API-Kontrakt</td><td style={{ textAlign: "right" }}>12</td><td style={{ textAlign: "right" }}>1.425,00</td></tr>
-                <tr><td>2</td><td><strong>Web App (Next.js)</strong> — Auth, Voice UI, Timer, Ergebnisse, Kompetenzfelder</td><td style={{ textAlign: "right" }}>44</td><td style={{ textAlign: "right" }}>5.225,00</td></tr>
-                <tr><td>3</td><td><strong>Backend API &amp; Datenhaltung</strong> — Proxy, Session-Engine, LLM-Pipeline, Admin</td><td style={{ textAlign: "right" }}>33</td><td style={{ textAlign: "right" }}>3.918,75</td></tr>
-                <tr><td>4</td><td><strong>Deployment &amp; QS</strong> — Integration-Tests, Docker, Monitoring</td><td style={{ textAlign: "right" }}>6</td><td style={{ textAlign: "right" }}>712,50</td></tr>
-                <tr><td>5</td><td><strong>ConvAI / LiveKit Integration</strong> — Speech-to-Speech via WebSDK</td><td style={{ textAlign: "right" }}>24</td><td style={{ textAlign: "right" }}>2.850,00</td></tr>
-                <tr style={{ background: "var(--paper-2)" }}><td></td><td><strong>Summe</strong></td><td style={{ textAlign: "right" }}><strong>119</strong></td><td style={{ textAlign: "right" }}><strong>14.131,25</strong></td></tr>
-              </tbody>
-            </table>
           </div>
           <PageFooter page={2} />
         </div>
 
-        {/* ===== PAGE 3 · VERGLEICH ===== */}
+        {/* ===== PAGE 3 · ANGEBOT / EXTRAS / ABNAHME ===== */}
         <div className="page">
           <PageHeader />
           <div style={{ flex: 1 }}>
-            <h2><span className="num">03</span>Angebot vs. Lieferung</h2>
 
-            <table className="compare-table">
-              <thead>
-                <tr>
-                  <th style={{ width: "22%" }}>Baustein</th>
-                  <th style={{ width: "8%" }}>Status</th>
-                  <th>Geliefert</th>
-                  <th style={{ width: "14%" }}>PRs</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="feature">Web-App</td>
-                  <td className="status-ok">✅</td>
-                  <td>Next.js, Flow Login → Briefing → Session → Auswertung. Avatar-Bilder, Text-Fallback.</td>
-                  <td>#1–4, #32</td>
-                </tr>
-                <tr>
-                  <td className="feature">KI-Sprachsteuerung</td>
-                  <td className="status-ok">✅</td>
-                  <td>LiveKit + ElevenLabs-TTS. MAI-Voice-2 als Fallback-Anbieter. LiveKit v1.13.1.</td>
-                  <td>#6–8, #23, #63, #65</td>
-                </tr>
-                <tr>
-                  <td className="feature">Backend</td>
-                  <td className="status-ok">✅</td>
-                  <td>Python-Agent als Proxy. Keys nur serverseitig. Webhook für LLM-Auswertung.</td>
-                  <td>#16, #21, #72</td>
-                </tr>
-                <tr>
-                  <td className="feature">Login &amp; Rollen</td>
-                  <td className="status-ok">✅</td>
-                  <td>Nutzer-ID (ohne E-Mail-Pflicht), Passwort. Nutzer- und Admin-Rolle. Einladungscode.</td>
-                  <td>#2, #60, #69</td>
-                </tr>
-                <tr>
-                  <td className="feature">10-Minuten-Timer</td>
-                  <td className="status-ok">✅</td>
-                  <td>Server-autoritär im Agent. Countdown, 30-s-Warnung, harter Stopp, Auto-Redirect.</td>
-                  <td>#34, #86, #87</td>
-                </tr>
-                <tr>
-                  <td className="feature">Datenspeicherung</td>
-                  <td className="status-ok">✅</td>
-                  <td>Supabase. Session-Metadaten, Auswertungen, User-Profile, Org-Zuordnungen.</td>
-                  <td>#14, #75, #105</td>
-                </tr>
-                <tr>
-                  <td className="feature">KI-Auswertung</td>
-                  <td className="status-ok">✅</td>
-                  <td>LLM-Webhook nach Session. 9-Kategorien-Spinnennetz, Scorecard, 3 Auswertungsmodi, PDF.</td>
-                  <td>#16, #33, #82, #89–96</td>
-                </tr>
-                <tr>
-                  <td className="feature">Admin-Bereich</td>
-                  <td className="status-ok">✅</td>
-                  <td>Sessions, Nutzer (anlegen/löschen), Karten-Editor, Mandanten, Turn-Thresholds, Base-Prompt.</td>
-                  <td>#30, #53, #77, #104–117</td>
-                </tr>
-                <tr>
-                  <td className="feature">DSGVO &amp; Stabilität</td>
-                  <td className="status-ok">✅</td>
-                  <td>Loki/Grafana-Monitoring, Correlation IDs, Verbindungsdiagnose, Impressum, Nutzer-ID.</td>
-                  <td>#26–27, #60, #120</td>
-                </tr>
-                <tr>
-                  <td className="feature">Übergabe &amp; Betrieb</td>
-                  <td className="status-ok">✅</td>
-                  <td>Hetzner VPS, Docker-Compose, Auto-Deploy aus master, Staging-Server.</td>
-                  <td>#1, Skripte</td>
-                </tr>
-              </tbody>
-            </table>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 28 }}>
+
+              {/* LEFT: Angebot + Freigegebene Mehraufwände */}
+              <div>
+                <h2><span className="num">02</span>Angebot AG5930</h2>
+                <table style={{ marginBottom: 24 }}>
+                  <thead>
+                    <tr><th>Pos.</th><th>Leistung</th><th style={{ textAlign: "right" }}>h</th><th style={{ textAlign: "right" }}>€ netto</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>1</td><td>Konzeption &amp; Architektur</td><td style={{ textAlign: "right" }}>12</td><td style={{ textAlign: "right" }}>1.425</td></tr>
+                    <tr><td>2</td><td>Web App (Next.js)</td><td style={{ textAlign: "right" }}>44</td><td style={{ textAlign: "right" }}>5.225</td></tr>
+                    <tr><td>3</td><td>Backend API &amp; Datenhaltung</td><td style={{ textAlign: "right" }}>33</td><td style={{ textAlign: "right" }}>3.919</td></tr>
+                    <tr><td>4</td><td>Deployment &amp; QS</td><td style={{ textAlign: "right" }}>6</td><td style={{ textAlign: "right" }}>713</td></tr>
+                    <tr><td>5</td><td>ConvAI / LiveKit</td><td style={{ textAlign: "right" }}>24</td><td style={{ textAlign: "right" }}>2.850</td></tr>
+                    <tr style={{ background: "var(--paper-2)" }}>
+                      <td></td><td><strong>Summe</strong></td>
+                      <td style={{ textAlign: "right" }}><strong>119</strong></td>
+                      <td style={{ textAlign: "right" }}><strong>14.131</strong></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <h2><span className="num">03</span>Explizit freigegebene Mehraufwände</h2>
+                <table>
+                  <thead>
+                    <tr><th>Aufgabe</th><th>Freigabe</th><th style={{ textAlign: "right" }}>h</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Nutzer-ID statt E-Mail</td><td style={{ fontSize: 10, color: "var(--muted)" }}>Mail Tobias 10.06</td><td style={{ textAlign: "right" }}>8</td></tr>
+                    <tr><td>Mandantensystem</td><td style={{ fontSize: 10, color: "var(--muted)" }}>Mail Tobias 29.05 (Prio 3)</td><td style={{ textAlign: "right" }}>6</td></tr>
+                    <tr><td>TURN/TLS-Relay</td><td style={{ fontSize: 10, color: "var(--muted)" }}>technisch erforderlich</td><td style={{ textAlign: "right" }}>8</td></tr>
+                    <tr><td>Loki/Grafana-Monitoring</td><td style={{ fontSize: 10, color: "var(--muted)" }}>technisch erforderlich</td><td style={{ textAlign: "right" }}>5</td></tr>
+                    <tr><td>Staging-Server</td><td style={{ fontSize: 10, color: "var(--muted)" }}>technisch erforderlich</td><td style={{ textAlign: "right" }}>3</td></tr>
+                    <tr style={{ background: "var(--paper-2)" }}>
+                      <td><strong>Mehraufwand</strong></td><td></td>
+                      <td style={{ textAlign: "right" }}><strong>+30</strong></td>
+                    </tr>
+                    <tr style={{ background: "var(--red-soft)" }}>
+                      <td><strong>Gesamt</strong></td><td style={{ fontSize: 11 }}>~17.700 € netto</td>
+                      <td style={{ textAlign: "right" }}><strong>149</strong></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              {/* RIGHT: Versprochen extra + Abnahme */}
+              <div>
+                <h2><span className="num">04</span>Zusätzlich umgesetzt</h2>
+                <p style={{ fontSize: 12, color: "var(--muted)", marginBottom: 10 }}>Folgende Aufgaben wurden unter der Haube erledigt — ohne gesonderte Beauftragung.</p>
+                <ul style={{ listStyle: "none", padding: 0, margin: 0, fontSize: 12, lineHeight: 1.8 }}>
+                  {[
+                    "LLM-Self-Play für interne Prompt-Tests",
+                    "Admin-Debug-Panel (Live-Einblick in Sessions)",
+                    "MAI-Voice-2 als Fallback-TTS-Anbieter",
+                    "Relay-Reconnect & FallbackAdapter",
+                    "Verbindungsdiagnose-Seite (öffentlich)",
+                    "Einladungscode-Flow ohne E-Mail",
+                    "Dialog-Modus C (Lisa Müller)",
+                    "Structured Logs & Correlation IDs",
+                    "3 Auswertungsmodi (Übung 1 / 2 / C)",
+                    "CSV/JSON-Export im Admin",
+                  ].map(i => <li key={i}>✓ {i}</li>)}
+                </ul>
+
+                <div className="note good" style={{ marginTop: 24 }}>
+                  <strong>Projektabnahme · Theodor Schalagin · 26.06.2026</strong><br />
+                  <span style={{ fontStyle: "italic", fontSize: 12 }}>„wir haben alles getestet, sieht soweit ganz gut aus. Du kannst die Version gerne in die Produktion bringen."</span>
+                </div>
+
+                <div style={{ marginTop: 20, paddingTop: 16, borderTop: "1px solid var(--line)", fontSize: 11, color: "var(--muted)", lineHeight: 1.8 }}>
+                  122 Pull Requests · März – Juni 2026<br />
+                  Live: nitzschke.ai · Staging: staging.nitzschke.ai
+                </div>
+              </div>
+            </div>
+
           </div>
           <PageFooter page={3} />
-        </div>
-
-        {/* ===== PAGE 4 · EXTRAS ===== */}
-        <div className="page">
-          <PageHeader />
-          <div style={{ flex: 1 }}>
-            <h2><span className="num">04</span>Unter der Haube</h2>
-            <p className="lead">Folgende Aufgaben wurden zusätzlich umgesetzt — ohne gesonderte Beauftragung oder Aufpreis.</p>
-
-            <ul className="extra-list">
-              <li><strong>Mandantensystem</strong><span>Organisationen, Nutzer-Zuweisung, 3-Stufen-Kuratierung (Aktiv / Gesperrt / Deaktiviert).</span></li>
-              <li><strong>TURN/TLS-Relay</strong><span>WebRTC läuft auch durch Unternehmensfirewalls — Port 443, kein offener UDP nötig.</span></li>
-              <li><strong>Loki/Grafana-Monitoring</strong><span>Vollständiges Logging mit Correlation IDs, öffentliche Verbindungsdiagnose-Seite.</span></li>
-              <li><strong>Nutzer-ID statt E-Mail</strong><span>Datenschutzkonformer Login ohne personenbezogene Daten — frei wählbare Kennung.</span></li>
-              <li><strong>Einladungscode-Flow</strong><span>Registrierung per Link, kein E-Mail-Pflichtfeld.</span></li>
-              <li><strong>Admin-Debug-Panel</strong><span>Agent-Zustand, Prompt und Verbindungsparameter in Echtzeit während laufender Session.</span></li>
-              <li><strong>LLM-Self-Play</strong><span>Automatische Testgespräche zwischen zwei KI-Instanzen zur Prompt-Validierung.</span></li>
-              <li><strong>Staging-Server</strong><span>Isolierter Stack unter staging.nitzschke.ai mit Auto-Deploy aus dem development-Branch.</span></li>
-            </ul>
-          </div>
-          <PageFooter page={4} />
-        </div>
-
-        {/* ===== PAGE 5 · CHRONOLOGIE + ZEITAUFWAND ===== */}
-        <div className="page">
-          <PageHeader />
-          <div style={{ flex: 1 }}>
-            <h2><span className="num">05</span>Chronologie &amp; Zeitaufwand</h2>
-
-            <div className="timeline">
-              <div className="timeline-row">
-                <div className="timeline-badge">März</div>
-                <div className="timeline-body">
-                  <h3>Architektur &amp; Spec</h3>
-                  <p>Design-Spec, technische Architektur (Next.js, Python-Agent, Supabase, ElevenLabs), Implementierungsplan.</p>
-                </div>
-              </div>
-              <div className="timeline-row">
-                <div className="timeline-badge hl">Apr.</div>
-                <div className="timeline-body">
-                  <h3>Kernplattform · PRs #1–8</h3>
-                  <p>Login, Branding, Invite-Only, Avatare, TTS-Vorbereitung. Plattform erstmals lauffähig.</p>
-                </div>
-              </div>
-              <div className="timeline-row">
-                <div className="timeline-badge hl">3.–8. Jun</div>
-                <div className="timeline-body">
-                  <h3>Auswertung &amp; Infrastruktur · PRs #9–30</h3>
-                  <p>End-to-End-Flow, Spinnennetz, LLM-Debug, MAI-Voice-2, Grafana/Loki, TURN/TLS-Relay.</p>
-                </div>
-              </div>
-              <div className="timeline-row">
-                <div className="timeline-badge hl">8.–11. Jun</div>
-                <div className="timeline-body">
-                  <h3>Stabilisierung &amp; DSGVO · PRs #31–65</h3>
-                  <p>Relay-Reconnect, FallbackAdapter, Einladungscode, LiveKit v1.13.1, Auswertungs-Parsing.</p>
-                </div>
-              </div>
-              <div className="timeline-row">
-                <div className="timeline-badge">13.–19. Jun</div>
-                <div className="timeline-body">
-                  <h3>Nutzer-ID &amp; Content · PRs #66–101</h3>
-                  <p>E-Mail-freier Login, Kritikgespräch-Karten (Sandra), Dialog-Modus C (Lisa Müller), Übung-2-Auswertung, Charakter-Prompts.</p>
-                </div>
-              </div>
-              <div className="timeline-row">
-                <div className="timeline-badge hl">23.–30. Jun</div>
-                <div className="timeline-body">
-                  <h3>Mandantensystem · PRs #103–122</h3>
-                  <p>Multi-Tenant komplett: Organisationen, Nutzer-Picker, 3-Stufen-Sichtbarkeit, Karten-Editor, Impressum. Release auf master.</p>
-                </div>
-              </div>
-            </div>
-
-            <table style={{ marginTop: 24 }}>
-              <thead>
-                <tr><th>Bereich</th><th style={{ textAlign: "right" }}>h</th><th style={{ textAlign: "right", fontSize: 11 }}>Basis</th></tr>
-              </thead>
-              <tbody>
-                <tr className="section-header"><td colSpan={3}>Im Angebot AG5930 enthalten (119 h · 14.131,25 € netto)</td></tr>
-                {[
-                  ["Konzeption & Architektur", 12],
-                  ["Web App (Next.js) — UI, Timer, Ergebnisse", 44],
-                  ["Backend API & LLM-Pipeline", 33],
-                  ["Deployment & QS", 6],
-                  ["ConvAI / LiveKit Integration", 24],
-                ].map(([label, h]) => (
-                  <tr key={label as string}>
-                    <td>{label}</td>
-                    <td style={{ textAlign: "right" }}>{h} h</td>
-                    <td style={{ textAlign: "right", fontSize: 11, color: "var(--muted)" }}>AG5930</td>
-                  </tr>
-                ))}
-                <tr className="section-header"><td colSpan={3}>Per E-Mail beauftragt &amp; abgenommen (+30 h)</td></tr>
-                {[
-                  ["Nutzer-ID statt E-Mail (Datenschutz)", 8],
-                  ["Mandantensystem (Prio 3 per Mail)", 6],
-                  ["TURN/TLS-Relay für Firewalls", 8],
-                  ["Loki/Grafana-Monitoring", 5],
-                  ["Bugfixes & Stabilisierung", 3],
-                ].map(([label, h]) => (
-                  <tr key={label as string}>
-                    <td>{label}</td>
-                    <td style={{ textAlign: "right" }}>{h} h</td>
-                    <td style={{ textAlign: "right", fontSize: 11, color: "var(--muted)" }}>Mail</td>
-                  </tr>
-                ))}
-                <tr style={{ background: "var(--red-soft)" }}>
-                  <td><strong>Gesamt</strong></td>
-                  <td style={{ textAlign: "right" }}><strong>149 h</strong></td>
-                  <td style={{ textAlign: "right", fontSize: 11 }}><strong>~17.700 € netto</strong></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <PageFooter page={5} />
-        </div>
-
-        {/* ===== PAGE 6 · ZUSAMMENARBEIT & ABNAHME ===== */}
-        <div className="page">
-          <PageHeader />
-          <div style={{ flex: 1 }}>
-            <h2><span className="num">06</span>Zusammenarbeit &amp; Abnahme</h2>
-            <p className="lead">Vom Kickoff-Meeting Ende Mai bis zur Produktions-Abnahme Ende Juni — jede Anpassung innerhalb von Stunden umgesetzt.</p>
-
-            <div className="timeline">
-              <div className="timeline-row">
-                <div className="timeline-badge">29. Mai</div>
-                <div className="timeline-body">
-                  <h3>Kickoff &amp; Plattform-Spezifikation</h3>
-                  <p>Gemeinsame Definition der Ausgangsbasis: Kompetenzfeld „Kommunikation" (Kritikgespräch leicht/mittel/schwer, Positive Sprache) und Kompetenzfeld „Typen" (Anna Richter, Thomas Müller, Donald Trump).</p>
-                </div>
-              </div>
-              <div className="timeline-row">
-                <div className="timeline-badge">1. Jun</div>
-                <div className="timeline-body">
-                  <h3>Szenario-UI &amp; Onboarding</h3>
-                  <p>Szenario-Aufbau finalisiert, Platzhalter als „Unlock" gekennzeichnet, Donald Trump als Featured Case integriert, „How to"-Menü ergänzt. Feedback: <em>„finde die Anpassungen absolut gelungen – das wird unser Aufbau sein!"</em></p>
-                </div>
-              </div>
-              <div className="timeline-row">
-                <div className="timeline-badge">4. Jun</div>
-                <div className="timeline-body">
-                  <h3>Auswertungs-Format abgestimmt</h3>
-                  <p>9-Kategorien-Spinnennetz gemeinsam bestätigt. Prompt-Struktur für alle Basisprofile (Sandra, Kritikgespräch leicht/mittel/schwer) definiert.</p>
-                </div>
-              </div>
-              <div className="timeline-row">
-                <div className="timeline-badge hl">8.–9. Jun</div>
-                <div className="timeline-body">
-                  <h3>Login &amp; Freischaltung</h3>
-                  <p>Einladungscode-Flow, Textkorrekturen, Celebrity-Booster, Coaching-Bereich bereinigt. Feedback: <em>„Alles korrekt umgesetzt, so können wir nun starten."</em></p>
-                </div>
-              </div>
-              <div className="timeline-row">
-                <div className="timeline-badge hl">10.–12. Jun</div>
-                <div className="timeline-body">
-                  <h3>Datenschutz: Nutzer-ID statt E-Mail</h3>
-                  <p>Auf Basis der Datenschutzanforderungen komplett auf frei wählbare Nutzer-ID umgestellt — kein E-Mail-Pflichtfeld mehr. Feedback: <em>„Super, hat geklappt. Alles rund … Geschafft."</em></p>
-                </div>
-              </div>
-              <div className="timeline-row">
-                <div className="timeline-badge hl">23.–24. Jun</div>
-                <div className="timeline-body">
-                  <h3>Mandantensystem mit 3-Stufen-Berechtigungen</h3>
-                  <p>Vollständiges Mandantensystem über Nacht implementiert und auf Staging bereitgestellt: Rollen Aktiv / Locked / Deaktiviert, Admin-Verwaltung, isolierte Mandanten-Tenants.</p>
-                </div>
-              </div>
-              <div className="timeline-row">
-                <div className="timeline-badge">26. Jun</div>
-                <div className="timeline-body">
-                  <h3>Impressum &amp; finale Abnahme</h3>
-                  <p>Impressum-Seite umgesetzt. Abschließender Test auf Staging — grünes Licht für Produktion.</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="note good" style={{ marginTop: 20 }}>
-              <strong>Projektabnahme — Theodor Schalagin, 26.06.2026:</strong><br />
-              <span style={{ fontStyle: "italic", color: "var(--ink-2)" }}>„Hallo Eray, wir haben alles getestet, sieht soweit ganz gut aus. Du kannst die Version gerne in die Produktion bringen."</span>
-            </div>
-          </div>
-          <PageFooter page={6} />
-        </div>
-
-        {/* ===== PAGE 7 · FAZIT ===== */}
-        <div className="page back-cover">
-          <PageHeader />
-          <div style={{ flex: 1 }}>
-            <h2><span className="num">06</span>Fazit</h2>
-
-            <div className="two-col">
-              <div className="panel focus">
-                <h3>Versprochen</h3>
-                <ul>
-                  <li>Gesprächs-Trainingsplattform</li>
-                  <li>KI-Sprach-Session</li>
-                  <li>10-Minuten-Timer</li>
-                  <li>KI-Auswertung mit Diagramm</li>
-                  <li>Admin-Bereich</li>
-                  <li>Login mit Rollen</li>
-                  <li>DSGVO-konform</li>
-                  <li>Self-Hosting</li>
-                </ul>
-              </div>
-              <div className="panel">
-                <h3>Geliefert</h3>
-                <ul>
-                  <li>✅ Alles aus dem Angebot (10/10)</li>
-                  <li>✅ Mandantensystem</li>
-                  <li>✅ TURN-Relay (Firewall-sicher)</li>
-                  <li>✅ Loki/Grafana-Monitoring</li>
-                  <li>✅ Einladungscode ohne E-Mail</li>
-                  <li>✅ Nutzer-ID statt E-Mail</li>
-                  <li>✅ Admin-Debug live</li>
-                  <li>✅ Staging-Server</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="invest-hero" style={{ marginTop: 24 }}>
-              <div className="invest-label">Entwicklungsaufwand</div>
-              <div className="invest-range">
-                149 Stunden · ~17.700 € netto
-                <small>122 Pull Requests · März – Juni 2026</small>
-              </div>
-              <div className="invest-sub">Live auf nitzschke.ai · Staging: staging.nitzschke.ai</div>
-            </div>
-
-            <div style={{ marginTop: 32, paddingTop: 24, borderTop: "1px solid var(--line)", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32, fontSize: 13 }}>
-              <div>
-                <div style={{ color: "var(--muted)", marginBottom: 4, fontSize: 10, textTransform: "uppercase", letterSpacing: "0.1em" }}>Codana GmbH</div>
-                <div style={{ fontWeight: 600 }}>info@codana.de</div>
-              </div>
-              <div>
-                <div style={{ color: "var(--muted)", marginBottom: 4, fontSize: 10, textTransform: "uppercase", letterSpacing: "0.1em" }}>Repository</div>
-                <div style={{ fontWeight: 600 }}>github.com/codana-gmbh/voice2voice</div>
-              </div>
-            </div>
-          </div>
-          <PageFooter page={6} />
         </div>
 
       </div>
