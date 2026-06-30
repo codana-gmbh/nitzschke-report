@@ -1,6 +1,6 @@
 "use client";
 
-const TOTAL_PAGES = 4;
+const TOTAL_PAGES = 3;
 const REPORT_DATE = "30.06.2026";
 
 // Zeiterfassung aus 351 Commits (Nicht-Merge) ab Beauftragung 30.03. Sessions getrennt bei >90 Min Pause.
@@ -53,22 +53,21 @@ function SheetTable({ rows, subLabel, subHours }: { rows: SheetRow[]; subLabel: 
   return (
     <table className="sheet">
       <thead>
-        <tr><th>Datum</th><th>Tag</th><th>Tätigkeit</th><th className="r">Cmt.</th><th className="r">Std</th></tr>
+        <tr><th>Datum</th><th>Tag</th><th>Tätigkeit</th><th className="r">Std</th></tr>
       </thead>
       <tbody>
-        {rows.map(([d, wd, win, c, h]) => {
+        {rows.map(([d, wd, win, , h]) => {
           const we = wd === "Sa" || wd === "So";
           return (
             <tr key={d}>
               <td>{d}</td>
               <td className={we ? "we" : ""}>{wd}</td>
               <td>{win}</td>
-              <td className="r">{c}</td>
               <td className="r">{h.toLocaleString("de-DE", { minimumFractionDigits: 1 })}</td>
             </tr>
           );
         })}
-        <tr className="sub"><td colSpan={4}>{subLabel}</td><td className="r">{subHours.toLocaleString("de-DE", { minimumFractionDigits: 1 })}</td></tr>
+        <tr className="sub"><td colSpan={3}>{subLabel}</td><td className="r">{subHours.toLocaleString("de-DE", { minimumFractionDigits: 1 })}</td></tr>
       </tbody>
     </table>
   );
@@ -234,101 +233,11 @@ export default function Page() {
           <PageFooter page={2} />
         </div>
 
-        {/* ===== PAGE 3 · ANGEBOT / EXTRAS / ABNAHME ===== */}
+        {/* ===== PAGE 3 · ZEITERFASSUNG (DETAIL) ===== */}
         <div className="page">
           <PageHeader />
           <div style={{ flex: 1 }}>
-
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 28 }}>
-
-              {/* LEFT: Freigegebenes Budget */}
-              <div>
-                <h2><span className="num">02</span>Abgerechnet</h2>
-                <p style={{ fontSize: 12, color: "var(--muted)", marginBottom: 10 }}>Schlussrechnung RE6118 · 18.05.2026</p>
-                <table style={{ marginBottom: 16 }}>
-                  <thead>
-                    <tr><th>Pos.</th><th>Leistung</th><th style={{ textAlign: "right" }}>h</th><th style={{ textAlign: "right" }}>€ netto</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr><td>1</td><td>Konzeption &amp; Architektur</td><td style={{ textAlign: "right" }}>12</td><td style={{ textAlign: "right" }}>1.425,00</td></tr>
-                    <tr><td>2</td><td>Web App (Next.js) inkl. Voice/UI</td><td style={{ textAlign: "right" }}>44</td><td style={{ textAlign: "right" }}>5.225,00</td></tr>
-                    <tr><td>3</td><td>Backend API &amp; Datenhaltung</td><td style={{ textAlign: "right" }}>33</td><td style={{ textAlign: "right" }}>3.918,75</td></tr>
-                    <tr><td>4</td><td>Deployment &amp; QS</td><td style={{ textAlign: "right" }}>6</td><td style={{ textAlign: "right" }}>712,50</td></tr>
-                    <tr style={{ background: "var(--red-soft)" }}>
-                      <td></td><td><strong>Zwischensumme netto</strong></td>
-                      <td style={{ textAlign: "right" }}><strong>95</strong></td>
-                      <td style={{ textAlign: "right" }}><strong>11.281,25</strong></td>
-                    </tr>
-                  </tbody>
-                </table>
-                <p style={{ fontSize: 11, color: "var(--muted)", marginBottom: 16 }}>zzgl. 19 % USt → 13.424,69 € brutto</p>
-
-                <h3 style={{ marginTop: 4 }}>Zeiterfassung <span style={{ fontSize: 10, color: "var(--muted)", fontWeight: 400 }}>(Detail S. 04)</span></h3>
-                <table>
-                  <tbody>
-                    <tr><td>Abgerechnet</td><td style={{ textAlign: "right" }}>95,0 h</td></tr>
-                    <tr><td>Erfasst <span style={{ fontSize: 10, color: "var(--muted)" }}>(aus 351 Commits)</span></td><td style={{ textAlign: "right" }}>107,0 h</td></tr>
-                    <tr style={{ background: "var(--paper-2)" }}>
-                      <td><strong>Mehraufwand</strong> <span style={{ fontSize: 10, color: "var(--muted)" }}>(ohne Aufpreis)</span></td>
-                      <td style={{ textAlign: "right" }}><strong>+12,0 h</strong></td>
-                    </tr>
-                  </tbody>
-                </table>
-
-                <h3 style={{ marginTop: 4 }}>Freigegeben · wird separat umgesetzt</h3>
-                <table>
-                  <tbody>
-                    <tr>
-                      <td>3D-Avatare <span style={{ fontSize: 10, color: "var(--muted)" }}>(optionales Angebot)</span></td>
-                      <td style={{ textAlign: "right" }}><span className="badge red-soft">offen</span></td>
-                    </tr>
-                  </tbody>
-                </table>
-
-                <p style={{ fontSize: 11, color: "var(--muted)", lineHeight: 1.6, marginTop: 10 }}>
-                  Abgerechnet wurde die Schlussrechnung RE6118 (Angebot AG5930, Pos. 1–4 ohne ConvAI). Die aus den Commits ab Beauftragung (30.03.) abgeleitete Zeiterfassung liegt mit 107,0 h rund 12 h über der abgerechneten Menge — dieser Mehraufwand sowie alle rechts gelisteten Zusatzleistungen wurden ohne Aufpreis umgesetzt. Das optionale Angebot „3D-Avatare" ist freigegeben und wird separat umgesetzt.
-                </p>
-              </div>
-
-              {/* RIGHT: Ohne Aufpreis + Abnahme */}
-              <div>
-                <h2><span className="num">03</span>Ohne Aufpreis umgesetzt</h2>
-                <p style={{ fontSize: 12, color: "var(--muted)", marginBottom: 10 }}>Folgende Aufgaben wurden zusätzlich unter der Haube erledigt — nicht in Rechnung gestellt.</p>
-                <ul style={{ listStyle: "none", padding: 0, margin: 0, fontSize: 12, lineHeight: 1.8 }}>
-                  {[
-                    "Nutzer-ID statt E-Mail (Datenschutz)",
-                    "TURN/TLS-Relay (Firewall-tauglich)",
-                    "Loki/Grafana-Monitoring",
-                    "Staging-Server (staging.nitzschke.ai)",
-                    "Einladungscode-Flow ohne E-Mail",
-                    "LLM-Self-Play für interne Prompt-Tests",
-                    "Admin-Debug-Panel (Live-Sessions)",
-                    "Relay-Reconnect & FallbackAdapter",
-                    "Verbindungsdiagnose-Seite (öffentlich)",
-                  ].map(i => <li key={i}>✓ {i}</li>)}
-                </ul>
-
-                <div className="note good" style={{ marginTop: 24 }}>
-                  <strong>Projektabnahme · Theodor Schalagin · 26.06.2026</strong><br />
-                  <span style={{ fontStyle: "italic", fontSize: 12 }}>„wir haben alles getestet, sieht soweit ganz gut aus. Du kannst die Version gerne in die Produktion bringen."</span>
-                </div>
-
-                <div style={{ marginTop: 20, paddingTop: 16, borderTop: "1px solid var(--line)", fontSize: 11, color: "var(--muted)", lineHeight: 1.8 }}>
-                  122 Pull Requests · März – Juni 2026<br />
-                  Live: nitzschke.ai · Staging: staging.nitzschke.ai
-                </div>
-              </div>
-            </div>
-
-          </div>
-          <PageFooter page={3} />
-        </div>
-
-        {/* ===== PAGE 4 · ZEITERFASSUNG (DETAIL) ===== */}
-        <div className="page">
-          <PageHeader />
-          <div style={{ flex: 1 }}>
-            <h2><span className="num">04</span>Zeiterfassung · Detail</h2>
+            <h2><span className="num">03</span>Zeiterfassung · Detail</h2>
             <p style={{ fontSize: 12, color: "var(--muted)", marginBottom: 16, lineHeight: 1.6 }}>
               Abgeleitet aus 351 Commits (ohne Merges) ab Beauftragung am 30.03.2026. Tätigkeit und Stundenaufwand pro Arbeitstag aus den Commit-Zeiträumen (erster bis letzter Commit, Sessions mit mehr als 90 Minuten Pause getrennt gezählt). Vorarbeiten vom 13.03. (vor Beauftragung) sind nicht enthalten. Wochenenden rot markiert.
             </p>
@@ -342,7 +251,7 @@ export default function Page() {
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <div style={{ textAlign: "left" }}>
                   <div className="invest-label" style={{ marginBottom: 4 }}>Erfasste Entwicklungszeit</div>
-                  <div style={{ fontSize: 12, color: "rgba(255,255,255,.6)" }}>38 Arbeitstage · 351 Commits · 30.03. – 26.06.2026</div>
+                  <div style={{ fontSize: 12, color: "rgba(255,255,255,.6)" }}>38 Arbeitstage · 30.03. – 26.06.2026</div>
                 </div>
                 <div style={{ fontFamily: "var(--font-inter-tight)", fontSize: 40, fontWeight: 700, letterSpacing: "-.025em" }}>107,0 h</div>
               </div>
@@ -355,7 +264,7 @@ export default function Page() {
               <div className="kpi-box"><div className="kv red">107,0 h</div><div className="kl">Gesamt</div></div>
             </div>
           </div>
-          <PageFooter page={4} />
+          <PageFooter page={3} />
         </div>
 
       </div>
