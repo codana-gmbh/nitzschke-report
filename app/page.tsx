@@ -68,7 +68,6 @@ const TASKS: [string, string[]][] = [
   ["Admin & Daten", [
     "Session-Übersicht & Filter",
     "Nutzerverwaltung (anlegen / löschen)",
-    "CSV / JSON-Export",
     "Turn-Threshold-Konfiguration",
     "Base-Prompt-Editor",
     "Admin-Debug-Panel live",
