@@ -172,10 +172,10 @@ export default function Page() {
 
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 28 }}>
 
-              {/* LEFT: Angebot + Freigegebene Mehraufwände */}
+              {/* LEFT: Freigegebenes Budget */}
               <div>
-                <h2><span className="num">02</span>Angebot AG5930</h2>
-                <table style={{ marginBottom: 24 }}>
+                <h2><span className="num">02</span>Freigegebenes Budget</h2>
+                <table style={{ marginBottom: 16 }}>
                   <thead>
                     <tr><th>Pos.</th><th>Leistung</th><th style={{ textAlign: "right" }}>h</th><th style={{ textAlign: "right" }}>€ netto</th></tr>
                   </thead>
@@ -186,52 +186,50 @@ export default function Page() {
                     <tr><td>4</td><td>Deployment &amp; QS</td><td style={{ textAlign: "right" }}>6</td><td style={{ textAlign: "right" }}>713</td></tr>
                     <tr><td>5</td><td>ConvAI / LiveKit</td><td style={{ textAlign: "right" }}>24</td><td style={{ textAlign: "right" }}>2.850</td></tr>
                     <tr style={{ background: "var(--paper-2)" }}>
-                      <td></td><td><strong>Summe</strong></td>
-                      <td style={{ textAlign: "right" }}><strong>119</strong></td>
-                      <td style={{ textAlign: "right" }}><strong>14.131</strong></td>
+                      <td></td><td>Angebot AG5930</td>
+                      <td style={{ textAlign: "right" }}>119</td>
+                      <td style={{ textAlign: "right" }}>14.131</td>
+                    </tr>
+                    <tr><td>+</td><td>Mandantensystem (freigegeben)</td><td style={{ textAlign: "right" }}>6</td><td style={{ textAlign: "right" }}>713</td></tr>
+                    <tr style={{ background: "var(--red-soft)" }}>
+                      <td></td><td><strong>Umgesetzt &amp; freigegeben</strong></td>
+                      <td style={{ textAlign: "right" }}><strong>125</strong></td>
+                      <td style={{ textAlign: "right" }}><strong>14.844</strong></td>
                     </tr>
                   </tbody>
                 </table>
 
-                <h2><span className="num">03</span>Explizit freigegebene Mehraufwände</h2>
+                <h3 style={{ marginTop: 4 }}>Freigegeben · noch offen</h3>
                 <table>
-                  <thead>
-                    <tr><th>Aufgabe</th><th>Freigabe</th><th style={{ textAlign: "right" }}>h</th></tr>
-                  </thead>
                   <tbody>
-                    <tr><td>Nutzer-ID statt E-Mail</td><td style={{ fontSize: 10, color: "var(--muted)" }}>Mail Tobias 10.06</td><td style={{ textAlign: "right" }}>8</td></tr>
-                    <tr><td>Mandantensystem</td><td style={{ fontSize: 10, color: "var(--muted)" }}>Mail Tobias 29.05 (Prio 3)</td><td style={{ textAlign: "right" }}>6</td></tr>
-                    <tr><td>TURN/TLS-Relay</td><td style={{ fontSize: 10, color: "var(--muted)" }}>technisch erforderlich</td><td style={{ textAlign: "right" }}>8</td></tr>
-                    <tr><td>Loki/Grafana-Monitoring</td><td style={{ fontSize: 10, color: "var(--muted)" }}>technisch erforderlich</td><td style={{ textAlign: "right" }}>5</td></tr>
-                    <tr><td>Staging-Server</td><td style={{ fontSize: 10, color: "var(--muted)" }}>technisch erforderlich</td><td style={{ textAlign: "right" }}>3</td></tr>
-                    <tr style={{ background: "var(--paper-2)" }}>
-                      <td><strong>Mehraufwand</strong></td><td></td>
-                      <td style={{ textAlign: "right" }}><strong>+30</strong></td>
-                    </tr>
-                    <tr style={{ background: "var(--red-soft)" }}>
-                      <td><strong>Gesamt</strong></td><td style={{ fontSize: 11 }}>~17.700 € netto</td>
-                      <td style={{ textAlign: "right" }}><strong>149</strong></td>
+                    <tr>
+                      <td>3D-Avatare <span style={{ fontSize: 10, color: "var(--muted)" }}>(optionales Angebot)</span></td>
+                      <td style={{ textAlign: "right" }}><span className="badge red-soft">noch nicht umgesetzt</span></td>
                     </tr>
                   </tbody>
                 </table>
+
+                <p style={{ fontSize: 11, color: "var(--muted)", lineHeight: 1.6, marginTop: 10 }}>
+                  Freigegeben durch den Kunden: Gesamtangebot AG5930 zzgl. Mandantensystem (6 h). Das optionale Angebot „3D-Avatare" ist ebenfalls freigegeben, aber noch nicht umgesetzt. Alle weiteren auf dieser Seite gelisteten Leistungen wurden ohne Aufpreis umgesetzt.
+                </p>
               </div>
 
-              {/* RIGHT: Versprochen extra + Abnahme */}
+              {/* RIGHT: Ohne Aufpreis + Abnahme */}
               <div>
-                <h2><span className="num">04</span>Zusätzlich umgesetzt</h2>
-                <p style={{ fontSize: 12, color: "var(--muted)", marginBottom: 10 }}>Folgende Aufgaben wurden unter der Haube erledigt — ohne gesonderte Beauftragung.</p>
+                <h2><span className="num">03</span>Ohne Aufpreis umgesetzt</h2>
+                <p style={{ fontSize: 12, color: "var(--muted)", marginBottom: 10 }}>Folgende Aufgaben wurden zusätzlich unter der Haube erledigt — nicht in Rechnung gestellt.</p>
                 <ul style={{ listStyle: "none", padding: 0, margin: 0, fontSize: 12, lineHeight: 1.8 }}>
                   {[
+                    "Nutzer-ID statt E-Mail (Datenschutz)",
+                    "TURN/TLS-Relay (Firewall-tauglich)",
+                    "Loki/Grafana-Monitoring",
+                    "Staging-Server (staging.nitzschke.ai)",
+                    "Einladungscode-Flow ohne E-Mail",
                     "LLM-Self-Play für interne Prompt-Tests",
-                    "Admin-Debug-Panel (Live-Einblick in Sessions)",
-                    "MAI-Voice-2 als Fallback-TTS-Anbieter",
+                    "Admin-Debug-Panel (Live-Sessions)",
+                    "MAI-Voice-2 als Fallback-TTS",
                     "Relay-Reconnect & FallbackAdapter",
                     "Verbindungsdiagnose-Seite (öffentlich)",
-                    "Einladungscode-Flow ohne E-Mail",
-                    "Dialog-Modus C (Lisa Müller)",
-                    "Structured Logs & Correlation IDs",
-                    "3 Auswertungsmodi (Übung 1 / 2 / C)",
-                    "CSV/JSON-Export im Admin",
                   ].map(i => <li key={i}>✓ {i}</li>)}
                 </ul>
 
