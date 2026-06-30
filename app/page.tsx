@@ -46,7 +46,6 @@ const TASKS: [string, string[]][] = [
   ["KI & Voice", [
     "LiveKit-Integration (WebRTC)",
     "ElevenLabs TTS-Anbindung",
-    "MAI-Voice-2 als Fallback-Anbieter",
     "Python-Agent als Proxy-Backend",
     "LLM-Persona & Prompt-Verwaltung",
     "Charakter-Prompts (Sandra, Typen, Trump)",
@@ -226,7 +225,6 @@ export default function Page() {
                     "Einladungscode-Flow ohne E-Mail",
                     "LLM-Self-Play für interne Prompt-Tests",
                     "Admin-Debug-Panel (Live-Sessions)",
-                    "MAI-Voice-2 als Fallback-TTS",
                     "Relay-Reconnect & FallbackAdapter",
                     "Verbindungsdiagnose-Seite (öffentlich)",
                   ].map(i => <li key={i}>✓ {i}</li>)}
