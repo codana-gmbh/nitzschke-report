@@ -203,15 +203,15 @@ export default function Page() {
         <div className="page">
           <PageHeader />
           <div style={{ flex: 1 }}>
-            <h2 style={{ marginBottom: 20 }}><span className="num">02</span>Zeiterfassung · Detail</h2>
+            <h2 style={{ marginBottom: 10 }}><span className="num">02</span>Zeiterfassung · Detail</h2>
 
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, alignItems: "start" }}>
               <SheetTable rows={SHEET_A} subLabel="Zwischensumme April – Mai" subHours={46.5} />
               <SheetTable rows={SHEET_B} subLabel="Zwischensumme Juni" subHours={60.5} />
             </div>
 
-            <h3 style={{ marginTop: 28 }}>Abrechnung <span style={{ fontSize: 11, color: "var(--muted)", fontWeight: 400 }}>· Stundensatz 118,75 € netto</span></h3>
-            <table style={{ marginTop: 8 }}>
+            <h3 style={{ marginTop: 14 }}>Abrechnung <span style={{ fontSize: 11, color: "var(--muted)", fontWeight: 400 }}>· Stundensatz 118,75 € netto</span></h3>
+            <table className="tight" style={{ marginTop: 6 }}>
               <thead>
                 <tr><th>Leistung</th><th style={{ textAlign: "right" }}>h</th><th style={{ textAlign: "right" }}>€ netto</th></tr>
               </thead>
@@ -239,7 +239,7 @@ export default function Page() {
               </tbody>
             </table>
 
-            <div className="invest-hero" style={{ marginTop: 16, padding: "20px 24px" }}>
+            <div className="invest-hero" style={{ marginTop: 10, padding: "14px 24px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <div style={{ textAlign: "left" }}>
                   <div className="invest-label" style={{ marginBottom: 4 }}>Erfasste Entwicklungszeit gesamt</div>
