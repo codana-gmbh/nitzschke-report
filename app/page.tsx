@@ -341,50 +341,50 @@ export default function Page() {
               <div className="timeline-row">
                 <div className="timeline-badge">29. Mai</div>
                 <div className="timeline-body">
-                  <h3>Kickoff &amp; Plattform-Spezifikation · Tobias</h3>
-                  <p>Tobias definiert die Ausgangsbasis: Kompetenzfeld „Kommunikation" (Kritikgespräch leicht/mittel/schwer + Positive Sprache) und Kompetenzfeld „Typen" (Anna Richter, Thomas Müller, Donald Trump). Eray bestätigt den Deployment-Stand und startet die Umsetzung.</p>
+                  <h3>Kickoff &amp; Plattform-Spezifikation</h3>
+                  <p>Gemeinsame Definition der Ausgangsbasis: Kompetenzfeld „Kommunikation" (Kritikgespräch leicht/mittel/schwer, Positive Sprache) und Kompetenzfeld „Typen" (Anna Richter, Thomas Müller, Donald Trump).</p>
                 </div>
               </div>
               <div className="timeline-row">
                 <div className="timeline-badge">1. Jun</div>
                 <div className="timeline-body">
-                  <h3>UI-Anpassungen · Tobias</h3>
-                  <p>Szenario-Aufbau, Platzhalter → „Unlock", Donald Trump als Featured Case, Menü „How to" ergänzen. → Tobias: <em>„finde die Anpassungen absolut gelungen – das wird unser Aufbau sein!"</em></p>
+                  <h3>Szenario-UI &amp; Onboarding</h3>
+                  <p>Szenario-Aufbau finalisiert, Platzhalter als „Unlock" gekennzeichnet, Donald Trump als Featured Case integriert, „How to"-Menü ergänzt. Feedback: <em>„finde die Anpassungen absolut gelungen – das wird unser Aufbau sein!"</em></p>
                 </div>
               </div>
               <div className="timeline-row">
                 <div className="timeline-badge">4. Jun</div>
                 <div className="timeline-body">
-                  <h3>Auswertungs-Format · Mark Hempelmann</h3>
-                  <p>9-Kategorien-Spinnennetz bestätigt. Prompt-Übergabe für Basisprofile (Sandra, Kritikgespräch leicht/mittel/schwer) definiert.</p>
+                  <h3>Auswertungs-Format abgestimmt</h3>
+                  <p>9-Kategorien-Spinnennetz gemeinsam bestätigt. Prompt-Struktur für alle Basisprofile (Sandra, Kritikgespräch leicht/mittel/schwer) definiert.</p>
                 </div>
               </div>
               <div className="timeline-row">
                 <div className="timeline-badge hl">8.–9. Jun</div>
                 <div className="timeline-body">
-                  <h3>Login-Finalisierung · Tobias</h3>
-                  <p>Einladungscode-Flow, Text-Korrekturen, Coaching-Feld entfernen, Celebrity-Booster. → Tobias: <em>„Alles korrekt umgesetzt, so können wir nun starten."</em></p>
+                  <h3>Login &amp; Freischaltung</h3>
+                  <p>Einladungscode-Flow, Textkorrekturen, Celebrity-Booster, Coaching-Bereich bereinigt. Feedback: <em>„Alles korrekt umgesetzt, so können wir nun starten."</em></p>
                 </div>
               </div>
               <div className="timeline-row">
                 <div className="timeline-badge hl">10.–12. Jun</div>
                 <div className="timeline-body">
-                  <h3>Datenschutz: Nutzer-ID statt E-Mail · Tobias &amp; Theodor</h3>
-                  <p>Kunden haben strenge Datenschutzvorgaben → kompletter Umbau auf frei wählbare Nutzer-ID, kein E-Mail-Pflichtfeld, Login-Label angepasst. → Tobias: <em>„Geschafft. Super."</em></p>
+                  <h3>Datenschutz: Nutzer-ID statt E-Mail</h3>
+                  <p>Auf Basis der Datenschutzanforderungen komplett auf frei wählbare Nutzer-ID umgestellt — kein E-Mail-Pflichtfeld mehr. Feedback: <em>„Super, hat geklappt. Alles rund … Geschafft."</em></p>
                 </div>
               </div>
               <div className="timeline-row">
                 <div className="timeline-badge hl">23.–24. Jun</div>
                 <div className="timeline-body">
-                  <h3>Mandantensystem · Theodor &amp; Tobias</h3>
-                  <p>Theodor meldet: Berechtigungen greifen nicht, 3 Stufen fehlen (Aktiv / Locked / Deaktiviert). → Über Nacht geliefert, Bugs behoben, auf Staging bereitgestellt.</p>
+                  <h3>Mandantensystem mit 3-Stufen-Berechtigungen</h3>
+                  <p>Vollständiges Mandantensystem über Nacht implementiert und auf Staging bereitgestellt: Rollen Aktiv / Locked / Deaktiviert, Admin-Verwaltung, isolierte Mandanten-Tenants.</p>
                 </div>
               </div>
               <div className="timeline-row">
                 <div className="timeline-badge">26. Jun</div>
                 <div className="timeline-body">
-                  <h3>Impressum · Tobias</h3>
-                  <p>Impressum-Seite auf Staging umgesetzt und abgenommen.</p>
+                  <h3>Impressum &amp; finale Abnahme</h3>
+                  <p>Impressum-Seite umgesetzt. Abschließender Test auf Staging — grünes Licht für Produktion.</p>
                 </div>
               </div>
             </div>
